@@ -212,6 +212,3 @@ Gồm 3 giai đoạn:
 Workshop mang lại góc nhìn rõ ràng về chuyển đổi từ automation truyền thống sang **Agentic AI**.  
 Các diễn giả chia sẻ sâu sắc, thực tế và định hướng rõ ràng cho hành trình GenAI tại Việt Nam.  
 Sự kết hợp của **AgentCore**, **Bedrock**, **AI-DLC** và **Amazon Q** tạo nên bức tranh toàn diện về thế hệ AI dành cho doanh nghiệp.
-
-### **Một số hình ảnh tại sự kiện**
-*(Bạn thêm hình tại đây)*

@@ -210,6 +210,3 @@ Includes 3 phases:
 The workshop provided a clear view of the shift from traditional automation to **Agentic AI**.  
 Speakers delivered in-depth, practical content with clear direction for Vietnam’s GenAI adoption.  
 The combination of **AgentCore**, **Bedrock**, **AI-DLC**, and **Amazon Q** illustrates a comprehensive picture of enterprise AI.
-
-### **Event Photos**
-*(Add your images here)*
