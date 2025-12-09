@@ -23,13 +23,13 @@ In this post, we explore how the AWS Generative AI Innovation Center and Quora c
 
 The screenshot below showcases the user interface (UI) of Poe, the AI platform created by Quora. The image displays Poe’s extensive library of AI models, which are presented as individual “chatbots” that users can interact with.
 
-![](1.png)
+![](/images/3-Blog/Blog1/1.png)
 
 *Figure 1: Poe’s AI model library interface*
 
 The following screenshot provides a view of the **Model Catalog** within Amazon Bedrock, a fully managed service from Amazon Web Services (AWS) that offers access to a diverse range of foundation models (FMs). This catalog acts as a central hub for developers to discover, evaluate, and access state-of-the-art AI from various providers.
 
-![](2.png)
+![](/images/3-Blog/Blog1/2.png)
 
 *Figure 2: Model Catalog interface in Amazon Bedrock*
 
@@ -84,7 +84,7 @@ The wrapper API framework provides a unified interface between Poe and Amazon Be
 
 The solution architecture follows a modular design that separates concerns and enables flexible scaling, as illustrated in the following diagram.
 
-![](3.png)
+![](/images/3-Blog/Blog1/3.png)
 
 *Figure 3: High-level architecture of the wrapper API framework between Poe and Amazon Bedrock*
 
@@ -182,7 +182,7 @@ The flow begins when a client sends a request through Poe’s interface, which t
 
 The sequence diagram below illustrates the complete request processing flow:
 
-![](4.png)
+![](/images/3-Blog/Blog1/4.png)
 
 ---
 
@@ -750,6 +750,6 @@ The AWS Generative AI Innovation Center and Quora teams continue to collaborate 
 
 ### **About the authors**
 
-| ![](5.png)  | **Dr. Gilbert V. Lepadatu** is a Senior Deep Learning Architect at the AWS Generative AI Innovation Center, where he helps enterprise customers design and deploy scalable, cutting-edge GenAI solutions. With a PhD in Philosophy and dual Master’s degrees, he brings a holistic and interdisciplinary approach to data science and AI. |
+| ![](/images/3-Blog/Blog1/5.png)  | **Dr. Gilbert V. Lepadatu** is a Senior Deep Learning Architect at the AWS Generative AI Innovation Center, where he helps enterprise customers design and deploy scalable, cutting-edge GenAI solutions. With a PhD in Philosophy and dual Master’s degrees, he brings a holistic and interdisciplinary approach to data science and AI. |
 | :---------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![](6.jpeg) | **Nick Huber** is the AI Ecosystem Lead for Poe (by Quora), where he is responsible for ensuring high-quality and timely integrations of leading AI models onto the Poe platform.                                                                                                                                                         |
+| ![](/images/3-Blog/Blog1/6.jpeg) | **Nick Huber** is the AI Ecosystem Lead for Poe (by Quora), where he is responsible for ensuring high-quality and timely integrations of leading AI models onto the Poe platform.                                                                                                                                                         |

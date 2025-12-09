@@ -22,13 +22,13 @@ Trong bài viết này, chúng tôi sẽ trình bày chi tiết về cách AWS G
 
 Ảnh chụp màn hình dưới đây minh họa giao diện người dùng (UI) của Poe, nền tảng AI được Quora phát triển. Hình ảnh thể hiện thư viện phong phú các mô hình AI của Poe, được trình bày dưới dạng các “chatbot” riêng biệt mà người dùng có thể lựa chọn để tương tác.
 
-![](1.png)
+![](/images/3-Blog/Blog1/1.png)
 
 *Hình minh họa 1: Giao diện thư viện mô hình AI của Poe*
 
 Ảnh chụp tiếp theo cung cấp cái nhìn về “Model Catalog” trong Amazon Bedrock, một dịch vụ được quản lý toàn phần (fully managed) của Amazon Web Services (AWS).  Danh mục này hoạt động như một trung tâm tập trung, giúp các nhà phát triển khám phá, đánh giá và truy cập các mô hình AI nền tảng (Foundation Models – FMs) tiên tiến đến từ nhiều nhà cung cấp khác nhau.
 
-![](2.png)
+![](/images/3-Blog/Blog1/2.png)
 
 *Hình minh họa 2: Giao diện danh mục mô hình (Model Catalog) trong Amazon Bedrock*
 
@@ -73,7 +73,7 @@ Framework API bao bọc (wrapper API framework) cung cấp một giao diện th�
 
 Giải pháp được thiết kế dựa trên kiến trúc mô-đun (modular design), tách biệt rõ các chức năng độc lập (separation of concerns) và cho phép mở rộng linh hoạt (flexible scaling), như được minh họa trong sơ đồ dưới đây.
 
-![](3.png)
+![](/images/3-Blog/Blog1/3.png)
 
 *Hình minh họa 3: Kiến trúc tổng thể của framework Wrapper API giữa Poe và Amazon Bedrock*
 
@@ -154,7 +154,7 @@ Quy trình bắt đầu khi client gửi yêu cầu thông qua giao diện Poe, 
 
  Sơ đồ tuần tự dưới đây thể hiện toàn bộ luồng xử lý yêu cầu
 
-![](4.png)
+![](/images/3-Blog/Blog1/4.png)
 
 ### **Mẫu cấu hình cho triển khai nhanh nhiều bot**
 
@@ -685,7 +685,7 @@ AWS Generative AI Innovation Center và Quora sẽ tiếp tục hợp tác mở 
 
 **Về các tác giả**
 
-| ![](5.png) | Dr. Gilbert V. Lepadatu là Kiến trúc sư Học sâu cao cấp (Senior Deep Learning Architect) tại AWS Generative AI Innovation Center, nơi ông hỗ trợ các doanh nghiệp thiết kế và triển khai các giải pháp GenAI quy mô lớn và tiên tiến. Với bằng Tiến sĩ Triết học (PhD in Philosophy) và hai bằng Thạc sĩ, ông mang đến một cách tiếp cận toàn diện và liên ngành (holistic and interdisciplinary) trong khoa học dữ liệu và trí tuệ nhân tạo. |
+| ![](/images/3-Blog/Blog1/5.png) | Dr. Gilbert V. Lepadatu là Kiến trúc sư Học sâu cao cấp (Senior Deep Learning Architect) tại AWS Generative AI Innovation Center, nơi ông hỗ trợ các doanh nghiệp thiết kế và triển khai các giải pháp GenAI quy mô lớn và tiên tiến. Với bằng Tiến sĩ Triết học (PhD in Philosophy) và hai bằng Thạc sĩ, ông mang đến một cách tiếp cận toàn diện và liên ngành (holistic and interdisciplinary) trong khoa học dữ liệu và trí tuệ nhân tạo. |
 | :---- | :---- |
-| ![](6.jpeg) | **Nick Huber** là Trưởng nhóm Hệ sinh thái AI (AI Ecosystem Lead) cho Poe (thuộc Quora), chịu trách nhiệm đảm bảo việc tích hợp các mô hình AI hàng đầu lên nền tảng Poe diễn ra đúng hạn và đạt chất lượng cao nhất. |
+| ![](/images/3-Blog/Blog1/6.jpeg) | **Nick Huber** là Trưởng nhóm Hệ sinh thái AI (AI Ecosystem Lead) cho Poe (thuộc Quora), chịu trách nhiệm đảm bảo việc tích hợp các mô hình AI hàng đầu lên nền tảng Poe diễn ra đúng hạn và đạt chất lượng cao nhất. |
 

@@ -39,11 +39,11 @@ To solve these challenges, Verisk embarked on a journey to enhance Rating Insigh
 
 The following diagram illustrates the high-level architecture of the solution, with distinct sections showing the data ingestion process and inference loop. The architecture uses multiple AWS services to add generative AI capabilities to the Rating Insights system. The system’s components work together seamlessly, coordinating multiple LLM calls to generate user responses.
 
-![](1.png)
+![](/images/3-Blog/Blog2/1.png)
 
 The following diagram shows the architectural components and the high-level steps involved in the data ingestion process.
 
-![](2.png)
+![](/images/3-Blog/Blog2/2.png)
 
 The steps in the data ingestion process proceed as follows:
 
@@ -53,7 +53,7 @@ The steps in the data ingestion process proceed as follows:
 
 The following diagram shows the architectural components and the high-level steps involved in the inference loop to generate user responses.
 
-![](3.png)
+![](/images/3-Blog/Blog2/3.png)
 
 The steps in the inference loop proceed as follows:
 
@@ -88,7 +88,7 @@ The integration of these advanced technologies enables a seamless, user-friendly
 
 The following diagram shows the architectural components and the high-level steps involved in the evaluation loop to generate relevant and grounded responses.
 
-![](4.png)
+![](/images/3-Blog/Blog2/4.png)
 
 The steps in the evaluation loop proceed as follows:
 
@@ -98,7 +98,7 @@ The steps in the evaluation loop proceed as follows:
 
 The following diagram shows the process of capturing the chat history as contextual memory and storage for analysis.
 
-![](5.png)
+![](/images/3-Blog/Blog2/5.png)
 
 ---
 
@@ -148,11 +148,11 @@ For more information, refer to the following resources:
 
 **About the authors**
 
-| ![](6.png)   | Samit Verma serves as the Director of Software Engineering at Verisk, overseeing the Rating and Coverage development teams. In this role, he plays a key part in architectural design and provides strategic direction to multiple development teams, enhancing efficiency and ensuring long-term solution maintainability. He holds a master’s degree in information technology.                                                                                       |
+| ![](/images/3-Blog/Blog2/6.png)   | Samit Verma serves as the Director of Software Engineering at Verisk, overseeing the Rating and Coverage development teams. In this role, he plays a key part in architectural design and provides strategic direction to multiple development teams, enhancing efficiency and ensuring long-term solution maintainability. He holds a master’s degree in information technology.                                                                                       |
 | :----------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![](7.jpeg)  | Eusha Rizvi serves as a Software Development Manager at Verisk, leading several technology teams within the Ratings Products division. Possessing strong expertise in system design, architecture, and engineering, Eusha offers essential guidance that advances the development of innovative solutions. He holds a bachelor’s degree in information systems from Stony Brook University.                                                                             |
-| ![](8.png)   | Manmeet Singh is a Software Engineering Lead at Verisk and AWS Certified Generative AI Specialist. He leads the development of an agentic RAG-based generative AI system on Amazon Bedrock, with expertise in LLM orchestration, prompt engineering, vector databases, microservices, and high-availability architecture. Manmeet is passionate about applying advanced AI and cloud technologies to deliver resilient, scalable, and business-critical systems.        |
-| ![](9.png)   | Troy Smith is a Vice President of Rating Solutions at Verisk. Troy is a seasoned insurance technology leader with more than 25 years of experience in rating, pricing, and product strategy. At Verisk, he leads the team behind ISO Electronic Rating Content, a widely used resource across the insurance industry. Troy has held leadership roles at Earnix and Capgemini and was the cofounder and original creator of the Oracle Insbridge Rating Engine.          |
-| ![](10.jpeg) | Corey Finley is a Product Manager at Verisk. Corey has over 22 years of experience across personal and commercial lines of insurance. He has worked in both implementation and product support roles and has led efforts for major carriers including Allianz, CNA, Citizens, and others. At Verisk, he serves as Product Manager for VRI, RaaS, and ERC.                                                                                                               |
-| ![](11.png)  | Arun Pradeep Selvaraj is a Senior Solutions Architect at Amazon Web Services (AWS). Arun is passionate about working with his customers and stakeholders on digital transformations and innovation in the cloud while continuing to learn, build, and reinvent. He is creative, energetic, deeply customer-obsessed, and uses the working backward process to build modern architectures to help customers solve their unique challenges. Connect with him on LinkedIn. |
-| ![](12.png)  | Ryan Doty is a Solutions Architect Manager at Amazon Web Services (AWS), based out of New York. He helps financial services customers accelerate their adoption of the AWS Cloud by providing architectural guidelines to design innovative and scalable solutions. Coming from a software development and sales engineering background, the possibilities that the cloud can bring to the world excite him.                                                            |
+| ![](/images/3-Blog/Blog2/7.jpeg)  | Eusha Rizvi serves as a Software Development Manager at Verisk, leading several technology teams within the Ratings Products division. Possessing strong expertise in system design, architecture, and engineering, Eusha offers essential guidance that advances the development of innovative solutions. He holds a bachelor’s degree in information systems from Stony Brook University.                                                                             |
+| ![](/images/3-Blog/Blog2/8.png)   | Manmeet Singh is a Software Engineering Lead at Verisk and AWS Certified Generative AI Specialist. He leads the development of an agentic RAG-based generative AI system on Amazon Bedrock, with expertise in LLM orchestration, prompt engineering, vector databases, microservices, and high-availability architecture. Manmeet is passionate about applying advanced AI and cloud technologies to deliver resilient, scalable, and business-critical systems.        |
+| ![](/images/3-Blog/Blog2/9.png)   | Troy Smith is a Vice President of Rating Solutions at Verisk. Troy is a seasoned insurance technology leader with more than 25 years of experience in rating, pricing, and product strategy. At Verisk, he leads the team behind ISO Electronic Rating Content, a widely used resource across the insurance industry. Troy has held leadership roles at Earnix and Capgemini and was the cofounder and original creator of the Oracle Insbridge Rating Engine.          |
+| ![](/images/3-Blog/Blog2/10.jpeg) | Corey Finley is a Product Manager at Verisk. Corey has over 22 years of experience across personal and commercial lines of insurance. He has worked in both implementation and product support roles and has led efforts for major carriers including Allianz, CNA, Citizens, and others. At Verisk, he serves as Product Manager for VRI, RaaS, and ERC.                                                                                                               |
+| ![](/images/3-Blog/Blog2/11.png)  | Arun Pradeep Selvaraj is a Senior Solutions Architect at Amazon Web Services (AWS). Arun is passionate about working with his customers and stakeholders on digital transformations and innovation in the cloud while continuing to learn, build, and reinvent. He is creative, energetic, deeply customer-obsessed, and uses the working backward process to build modern architectures to help customers solve their unique challenges. Connect with him on LinkedIn. |
+| ![](/images/3-Blog/Blog2/12.png)  | Ryan Doty is a Solutions Architect Manager at Amazon Web Services (AWS), based out of New York. He helps financial services customers accelerate their adoption of the AWS Cloud by providing architectural guidelines to design innovative and scalable solutions. Coming from a software development and sales engineering background, the possibilities that the cloud can bring to the world excite him.                                                            |

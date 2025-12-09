@@ -55,7 +55,7 @@ Tuy nhiên, kiến trúc lai mang lại những thách thức riêng biệt.
 
 Post Bank đã triển khai các kết nối [AWS Direct Connect](https://aws.amazon.com/directconnect/) dự phòng trên những tuyến đường địa lý khác nhau, giúp đạt được độ trễ ổn định 30 mili-giây, đáp ứng yêu cầu vận hành của ứng dụng.
 
-![](1.png) 
+![](/images/3-Blog/Blog3/1.png) 
 Hình minh họa 1: sơ đồ kết nối AWS Direct Connect
 
 Nhóm dự án đã áp dụng linh hoạt [chiến lược 6Rs](https://aws.amazon.com/blogs/enterprise-strategy/6-strategies-for-migrating-applications-to-the-cloud/) gồm:  
@@ -88,12 +88,12 @@ Bằng cách sử dụng [AWS Organizations](https://aws.amazon.com/organization
 
 Nhóm kỹ thuật đã sử dụng [Account Factory for Terraform (AFT)](https://docs.aws.amazon.com/controltower/latest/userguide/aft-overview.html) để tạo mới tất cả tài khoản AWS với cấu hình và cài đặt bảo mật chuẩn. Đối với quản lý danh tính, họ liên kết (federate) IAM Identity Center với hệ thống quản lý danh tính sẵn có, giúp đơn giản hóa việc chứng nhận tuân thủ bằng cách điều chỉnh quy trình hiện có thay vì tạo quy trình mới. Sơ đồ dưới đây minh họa kiến trúc này:
 
-![](2.png) 
+![](/images/3-Blog/Blog3/2.png) 
 Hình minh họa 2: sơ đồ phân quyền và bảo mật
 
 Điều quan trọng đối với ngân hàng là chỉ thay đổi tối thiểu các quy trình hiện có trong khi vẫn đơn giản hóa việc tuân thủ. Kiến trúc bảo mật mạng hub-and-spoke, được thể hiện trong sơ đồ sau, cho phép mở rộng các quy trình bảo mật hiện có sang môi trường AWS Cloud thông qua đồng bộ hóa quản lý tường lửa (firewall management synchronization).
 
-![](3.png)  
+![](/images/3-Blog/Blog3/3.png)  
 Hình minh họa 3: sơ đồ kiến trúc mạng
 
 ## **Bài học cho các tổ chức tài chính**
@@ -121,8 +121,8 @@ Ngân hàng có kế hoạch di chuyển thêm nhiều hệ thống khác và đ
 
 Post Bank là một ngân hàng tiêu dùng của Ba Lan với khoảng 700.000 khách hàng, đã hoạt động trên thị trường 35 năm. Đối tác chiến lược và cổ đông chính của ngân hàng là Bưu điện Quốc gia Ba Lan. Thông qua mối quan hệ này, các sản phẩm và dịch vụ của ngân hàng được cung cấp tại mọi bưu điện trên toàn quốc, tạo nên mạng lưới khoảng 4.700 chi nhánh — lớn gấp 5 lần so với các đối thủ. Điều này giúp Post Bank phục vụ cả những người dân chưa có khả năng tiếp cận dịch vụ số, góp phần thúc đẩy tài chính toàn diện tại Ba Lan.
 
-| ![](4.jpg) | Waldemar Szczepański Waldemar là Trưởng nhóm Trung tâm Xuất sắc về Điện toán Đám mây (CCoE) tại Post Bank, phụ trách việc phát triển ngân hàng trong các lĩnh vực công nghệ đám mây và trí tuệ nhân tạo (AI). Ông có hơn 20 năm kinh nghiệm trong lĩnh vực tài chính. Tại Post Bank, ông đã lãnh đạo các dự án nhằm xây dựng môi trường làm việc hiện đại và ứng dụng các công nghệ mới, bao gồm AI và ngân hàng đám mây. |
+| ![](/images/3-Blog/Blog3/4.jpg) | Waldemar Szczepański Waldemar là Trưởng nhóm Trung tâm Xuất sắc về Điện toán Đám mây (CCoE) tại Post Bank, phụ trách việc phát triển ngân hàng trong các lĩnh vực công nghệ đám mây và trí tuệ nhân tạo (AI). Ông có hơn 20 năm kinh nghiệm trong lĩnh vực tài chính. Tại Post Bank, ông đã lãnh đạo các dự án nhằm xây dựng môi trường làm việc hiện đại và ứng dụng các công nghệ mới, bao gồm AI và ngân hàng đám mây. |
 | :---- | :---- |
-| ![](5.jpg) | **Bartłomiej Rafał** Bartłomiej là Trưởng nhóm kỹ thuật CCoE tại Post Bank. Ông đam mê việc ứng dụng công nghệ để giải quyết các vấn đề kinh doanh và cải thiện quy trình hiện có. Là một chuyên gia công nghệ đa năng (tech generalist), ông có niềm quan tâm sâu rộng đến mọi khía cạnh của CNTT, từ hạ tầng, an ninh mạng, kiến trúc hệ thống cho đến quản lý — và luôn có nhiều ý tưởng hơn thời gian để thực hiện. |
-| ![](6.jpg) | **Piotr Boetzel** Piotr là Kiến trúc sư Giải pháp Cấp cao (Senior Solution Architect) tại AWS, làm việc với khách hàng thuộc khu vực công (Public Sector) ở Trung và Đông Âu (CEE). Ông hỗ trợ khách hàng trong các dự án hiện đại hóa và chuyển đổi hệ thống, đặc biệt tập trung vào bảo mật và tuân thủ quy định. |
-| ![](7.png) | **Dariusz Matczak** Dariusz là Quản lý tài khoản (Account Manager) tại AWS, phụ trách khu vực công ở Ba Lan. Ông có hơn 15 năm kinh nghiệm làm việc với khách hàng và đối tác trên nhiều ngành công nghiệp, hỗ trợ họ trong các dự án chuyển đổi số lên đám mây và triển khai nhiều dự án công nghệ khác nhau. |
+| ![](/images/3-Blog/Blog3/5.jpg) | **Bartłomiej Rafał** Bartłomiej là Trưởng nhóm kỹ thuật CCoE tại Post Bank. Ông đam mê việc ứng dụng công nghệ để giải quyết các vấn đề kinh doanh và cải thiện quy trình hiện có. Là một chuyên gia công nghệ đa năng (tech generalist), ông có niềm quan tâm sâu rộng đến mọi khía cạnh của CNTT, từ hạ tầng, an ninh mạng, kiến trúc hệ thống cho đến quản lý — và luôn có nhiều ý tưởng hơn thời gian để thực hiện. |
+| ![](/images/3-Blog/Blog3/6.jpg) | **Piotr Boetzel** Piotr là Kiến trúc sư Giải pháp Cấp cao (Senior Solution Architect) tại AWS, làm việc với khách hàng thuộc khu vực công (Public Sector) ở Trung và Đông Âu (CEE). Ông hỗ trợ khách hàng trong các dự án hiện đại hóa và chuyển đổi hệ thống, đặc biệt tập trung vào bảo mật và tuân thủ quy định. |
+| ![](/images/3-Blog/Blog3/7.png) | **Dariusz Matczak** Dariusz là Quản lý tài khoản (Account Manager) tại AWS, phụ trách khu vực công ở Ba Lan. Ông có hơn 15 năm kinh nghiệm làm việc với khách hàng và đối tác trên nhiều ngành công nghiệp, hỗ trợ họ trong các dự án chuyển đổi số lên đám mây và triển khai nhiều dự án công nghệ khác nhau. |

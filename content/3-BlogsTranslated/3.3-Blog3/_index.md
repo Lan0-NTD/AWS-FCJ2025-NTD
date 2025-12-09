@@ -57,7 +57,7 @@ The 750-kilometer distance between the on-premises data center and the [AWS Regi
 
 Post Bank deployed redundant [AWS Direct Connect](https://aws.amazon.com/directconnect/) links over geographically diverse paths, achieving stable 30-millisecond latency that met the application’s operational requirements.
 
-![](1.png)
+![](/images/3-Blog/Blog3/1.png)
 Figure 1: AWS Direct Connect connectivity layout
 
 The project team applied the [6 Rs migration strategies](https://aws.amazon.com/blogs/enterprise-strategy/6-strategies-for-migrating-applications-to-the-cloud/) pragmatically:
@@ -90,12 +90,12 @@ By using [AWS Organizations](https://aws.amazon.com/organizations/) together wit
 
 The engineering team used [Account Factory for Terraform (AFT)](https://docs.aws.amazon.com/controltower/latest/userguide/aft-overview.html) to create all new AWS accounts with standardized configuration and security settings. For identity management, they federated IAM Identity Center with the existing identity management system, simplifying compliance audits by adjusting existing processes rather than introducing entirely new ones. The following diagram illustrates this architecture:
 
-![](2.png)
+![]/images/3-Blog/Blog3/(2.png)
 Figure 2: Permissions assignment and security architecture
 
 It was important for the bank to keep changes to existing processes to a minimum while still simplifying compliance. The hub-and-spoke network security architecture, shown in the following diagram, allowed the bank to extend its existing security processes into the AWS Cloud through synchronized firewall management.
 
-![](3.png)
+![](/images/3-Blog/Blog3/3.png)
 Figure 3: Network architecture and security management
 
 ## **Lessons for financial institutions**
@@ -129,8 +129,8 @@ Post Bank’s journey shows that with careful planning, close collaboration, and
 
 Post Bank is a Polish consumer bank with approximately 700,000 customers and 35 years of market presence. Its strategic partner and majority shareholder is the national Polish Post. Through this partnership, the bank’s products and services are available at every post office nationwide, creating a network of around 4,700 branches—five times larger than its competitors. This reach enables Post Bank to serve even citizens who are not digitally connected, supporting financial inclusion across Poland.
 
-| ![](4.jpg) | **Waldemar Szczepański** – Waldemar is the Head of the Cloud Center of Excellence (CCoE) at Post Bank, responsible for the bank’s development in cloud technologies and artificial intelligence (AI). He has over 20 years of experience in the financial sector. At Post Bank, he has led projects to build a modern workplace and to adopt new technologies, including AI and cloud banking. |
+| ![](/images/3-Blog/Blog3/4.jpg) | **Waldemar Szczepański** – Waldemar is the Head of the Cloud Center of Excellence (CCoE) at Post Bank, responsible for the bank’s development in cloud technologies and artificial intelligence (AI). He has over 20 years of experience in the financial sector. At Post Bank, he has led projects to build a modern workplace and to adopt new technologies, including AI and cloud banking. |
 | :--------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![](5.jpg) | **Bartłomiej Rafał** – Bartłomiej is the CCoE Technical Lead at Post Bank. He is passionate about using technology to solve business problems and improve existing processes. As a tech generalist, he has a broad interest in all areas of IT—from infrastructure, cybersecurity, and system architecture to management—and always has more ideas than time to implement them.                |
-| ![](6.jpg) | **Piotr Boetzel** – Piotr is a Senior Solutions Architect at AWS, working with public sector customers in Central and Eastern Europe (CEE). He supports customers in modernization and transformation projects, with a particular focus on security and regulatory compliance.                                                                                                                 |
-| ![](7.png) | **Dariusz Matczak** – Dariusz is an Account Manager at AWS, responsible for public sector customers in Poland. He has over 15 years of experience working with clients and partners across multiple industries, supporting their digital transformation to the cloud and helping deliver a variety of technology projects.                                                                     |
+| ![](/images/3-Blog/Blog3/5.jpg) | **Bartłomiej Rafał** – Bartłomiej is the CCoE Technical Lead at Post Bank. He is passionate about using technology to solve business problems and improve existing processes. As a tech generalist, he has a broad interest in all areas of IT—from infrastructure, cybersecurity, and system architecture to management—and always has more ideas than time to implement them.                |
+| ![](/images/3-Blog/Blog3/6.jpg) | **Piotr Boetzel** – Piotr is a Senior Solutions Architect at AWS, working with public sector customers in Central and Eastern Europe (CEE). He supports customers in modernization and transformation projects, with a particular focus on security and regulatory compliance.                                                                                                                 |
+| ![](/images/3-Blog/Blog3/7.png) | **Dariusz Matczak** – Dariusz is an Account Manager at AWS, responsible for public sector customers in Poland. He has over 15 years of experience working with clients and partners across multiple industries, supporting their digital transformation to the cloud and helping deliver a variety of technology projects.                                                                     |

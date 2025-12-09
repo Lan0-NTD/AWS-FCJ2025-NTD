@@ -34,10 +34,10 @@ Rating Insights cung cấp nội dung có giá trị, nhưng có những thách 
 Để giải quyết những thách thức này, Verisk đã bắt tay vào hành trình nâng cao Rating Insights bằng các công nghệ AI tạo sinh. Bằng cách tích hợp [Anthropic’s Claude](https://aws.amazon.com/bedrock/claude/), có sẵn trong Amazon Bedrock và [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/), Verisk đã tạo ra một nền tảng hội thoại tinh vi nơi người dùng có thể dễ dàng truy cập và phân tích các thay đổi nội dung xếp hạng.
 
 Sơ đồ sau minh họa kiến trúc cấp cao của giải pháp, với các phần riêng biệt hiển thị quy trình nhập dữ liệu và vòng lặp suy luận. Kiến trúc sử dụng nhiều dịch vụ AWS để thêm khả năng AI tạo sinh vào hệ thống Ratings Insight. Các thành phần của hệ thống này hoạt động cùng nhau một cách liền mạch, điều phối nhiều lệnh gọi LLM để tạo phản hồi cho người dùng.  
-![](1.png)
+![](/images/3-Blog/Blog2/1.png)
 
 Sơ đồ sau cho thấy các thành phần kiến trúc và các bước cấp cao liên quan đến quy trình nhập dữ liệu.  
-![](2.png) 
+![](/images/3-Blog/Blog2/2.png) 
 Các bước trong quy trình nhập dữ liệu diễn ra như sau:
 
 1. Quá trình này được kích hoạt khi một tệp mới được thả vào. Nó chịu trách nhiệm phân đoạn tài liệu bằng cách sử dụng chiến lược phân đoạn tùy chỉnh. Chiến lược này kiểm tra đệ quy từng phần và giữ chúng nguyên vẹn mà không chồng chéo. Sau đó, quá trình nhúng các đoạn và lưu trữ chúng trong OpenSearch Service dưới dạng nhúng vectơ.  
@@ -45,7 +45,7 @@ Các bước trong quy trình nhập dữ liệu diễn ra như sau:
 3. Amazon OpenSearch Serverless được sử dụng làm kho lưu trữ nhúng vectơ với khả năng lọc siêu dữ liệu.
 
 Sơ đồ sau cho thấy các thành phần kiến trúc và các bước cấp cao liên quan đến vòng lặp suy luận để tạo phản hồi cho người dùng.  
-![](3.png) 
+![](/images/3-Blog/Blog2/3.png) 
 Các bước trong vòng lặp suy luận diễn ra như sau:
 
 1. Thành phần này chịu trách nhiệm thực hiện nhiều tác vụ: nó bổ sung các câu hỏi của người dùng bằng lịch sử trò chuyện gần đây, nhúng các câu hỏi, truy xuất các đoạn liên quan từ cơ sở dữ liệu vectơ và cuối cùng gọi mô hình tạo sinh để tổng hợp phản hồi.  
@@ -74,7 +74,7 @@ Việc tích hợp các công nghệ tiên tiến này cho phép trải nghiệm
 4. **Thông tin chi tiết tùy chỉnh** – Các biện pháp bảo vệ được áp dụng có nghĩa là các phản hồi chính xác, tuân thủ và có thể hành động. Ngoài ra, nếu cần, hệ thống có thể giúp người dùng hiểu tác động của các thay đổi và hỗ trợ họ điều hướng sự phức tạp của các hồ sơ, cung cấp thông tin chi tiết rõ ràng, súc tích.
 
 Sơ đồ sau cho thấy các thành phần kiến trúc và các bước cấp cao liên quan đến vòng lặp đánh giá để tạo ra các phản hồi có liên quan và có cơ sở.  
-![](4.png)
+![](/images/3-Blog/Blog2/4.png)
 
 Các bước trong vòng lặp đánh giá diễn ra như sau:
 
@@ -83,7 +83,7 @@ Các bước trong vòng lặp đánh giá diễn ra như sau:
 3. API đánh giá đảm bảo rằng các phản hồi vẫn phù hợp với các truy vấn của người dùng và vẫn nằm trong ngữ cảnh được cung cấp.
 
 Sơ đồ sau cho thấy quá trình ghi lại lịch sử trò chuyện làm bộ nhớ ngữ cảnh và lưu trữ để phân tích.  
-![](5.png)
+![](/images/3-Blog/Blog2/5.png)
 
 **Các tiêu chuẩn chất lượng**  
 Nhóm Verisk Rating Insights đã triển khai một khung đánh giá toàn diện và cơ chế vòng lặp phản hồi tương ứng, được hiển thị trong các hình trên, để hỗ trợ cải tiến liên tục và giải quyết các vấn đề có thể phát sinh.
@@ -124,11 +124,11 @@ Với Amazon Bedrock và sự tập trung vào tự động hóa, Verisk đang t
 
 **Về các tác giả**
 
-| ![](6.png)| Samit Verma là Giám đốc Kỹ thuật Phần mềm tại Verisk, giám sát các nhóm phát triển Xếp hạng và Bảo hiểm. Trong vai trò này, ông đóng vai trò quan trọng trong thiết kế kiến trúc và cung cấp định hướng chiến lược cho nhiều nhóm phát triển, nâng cao hiệu quả và đảm bảo khả năng duy trì giải pháp lâu dài. Ông có bằng thạc sĩ về công nghệ thông tin. |
+| ![](/images/3-Blog/Blog2/6.png)| Samit Verma là Giám đốc Kỹ thuật Phần mềm tại Verisk, giám sát các nhóm phát triển Xếp hạng và Bảo hiểm. Trong vai trò này, ông đóng vai trò quan trọng trong thiết kế kiến trúc và cung cấp định hướng chiến lược cho nhiều nhóm phát triển, nâng cao hiệu quả và đảm bảo khả năng duy trì giải pháp lâu dài. Ông có bằng thạc sĩ về công nghệ thông tin. |
 | :---- | :---- |
-| ![](7.jpeg) | Eusha Rizvi là Giám đốc Phát triển Phần mềm tại Verisk, lãnh đạo một số nhóm công nghệ trong bộ phận Sản phẩm Xếp hạng. Với chuyên môn vững chắc về thiết kế, kiến trúc và kỹ thuật hệ thống, Eusha cung cấp hướng dẫn thiết yếu để thúc đẩy sự phát triển của các giải pháp đổi mới. Ông có bằng cử nhân về hệ thống thông tin từ Đại học Stony Brook. |
-| ![](8.png) | Manmeet Singh là Trưởng nhóm Kỹ thuật Phần mềm tại Verisk và là Chuyên gia AI tạo sinh được chứng nhận AWS. Ông lãnh đạo việc phát triển một hệ thống AI tạo sinh dựa trên RAG trên Amazon Bedrock, với chuyên môn về điều phối LLM, kỹ thuật nhắc nhở, cơ sở dữ liệu vectơ, vi dịch vụ và kiến trúc có độ khả dụng cao. Manmeet đam mê áp dụng các công nghệ AI và điện toán đám mây tiên tiến để cung cấp các hệ thống linh hoạt, có khả năng mở rộng và quan trọng đối với doanh nghiệp. |
-| ![](9.png) | Troy Smith là Phó Chủ tịch Giải pháp Xếp hạng tại Verisk. Troy là một nhà lãnh đạo công nghệ bảo hiểm dày dạn kinh nghiệm với hơn 25 năm kinh nghiệm trong chiến lược xếp hạng, định giá và sản phẩm. Tại Verisk, ông lãnh đạo nhóm đứng sau ISO Electronic Rating Content, một tài nguyên được sử dụng rộng rãi trong ngành bảo hiểm. Troy đã giữ các vai trò lãnh đạo tại Earnix và Capgemini và là người đồng sáng lập và tạo ra công cụ Oracle Insbridge Rating Engine ban đầu. |
-| ![](10.jpeg) | Corey Finley là Giám đốc Sản phẩm tại Verisk. Corey có hơn 22 năm kinh nghiệm trong lĩnh vực bảo hiểm cá nhân và thương mại. Ông đã làm việc trong cả vai trò triển khai và hỗ trợ sản phẩm và đã dẫn dắt các nỗ lực cho các hãng vận tải lớn bao gồm Allianz, CNA, Citizens và những hãng khác. Tại Verisk, ông giữ chức Giám đốc Sản phẩm cho VRI, RaaS và ERC. |
-| ![](11.png) | Arun Pradeep Selvaraj là Kiến trúc sư Giải pháp cấp cao tại Amazon Web Services (AWS). Arun đam mê làm việc với khách hàng và các bên liên quan của mình về chuyển đổi kỹ thuật số và đổi mới trên đám mây trong khi tiếp tục học hỏi, xây dựng và đổi mới. Ông là người sáng tạo, năng động, tận tâm với khách hàng và sử dụng quy trình làm việc ngược để xây dựng các kiến trúc hiện đại nhằm giúp khách hàng giải quyết những thách thức độc đáo của họ. Kết nối với ông trên LinkedIn. |
-| ![](12.png) | Ryan Doty là Giám đốc Kiến trúc sư Giải pháp tại Amazon Web Services (AWS), có trụ sở tại New York. Ông giúp khách hàng dịch vụ tài chính đẩy nhanh việc áp dụng AWS Cloud bằng cách cung cấp các hướng dẫn kiến trúc để thiết kế các giải pháp sáng tạo và có khả năng mở rộng. Đến từ nền tảng phát triển phần mềm và kỹ thuật bán hàng, những khả năng mà đám mây có thể mang lại cho thế giới khiến ông rất hào hứng. |
+| ![](/images/3-Blog/Blog2/7.jpeg) | Eusha Rizvi là Giám đốc Phát triển Phần mềm tại Verisk, lãnh đạo một số nhóm công nghệ trong bộ phận Sản phẩm Xếp hạng. Với chuyên môn vững chắc về thiết kế, kiến trúc và kỹ thuật hệ thống, Eusha cung cấp hướng dẫn thiết yếu để thúc đẩy sự phát triển của các giải pháp đổi mới. Ông có bằng cử nhân về hệ thống thông tin từ Đại học Stony Brook. |
+| ![](/images/3-Blog/Blog2/8.png) | Manmeet Singh là Trưởng nhóm Kỹ thuật Phần mềm tại Verisk và là Chuyên gia AI tạo sinh được chứng nhận AWS. Ông lãnh đạo việc phát triển một hệ thống AI tạo sinh dựa trên RAG trên Amazon Bedrock, với chuyên môn về điều phối LLM, kỹ thuật nhắc nhở, cơ sở dữ liệu vectơ, vi dịch vụ và kiến trúc có độ khả dụng cao. Manmeet đam mê áp dụng các công nghệ AI và điện toán đám mây tiên tiến để cung cấp các hệ thống linh hoạt, có khả năng mở rộng và quan trọng đối với doanh nghiệp. |
+| ![](/images/3-Blog/Blog2/9.png) | Troy Smith là Phó Chủ tịch Giải pháp Xếp hạng tại Verisk. Troy là một nhà lãnh đạo công nghệ bảo hiểm dày dạn kinh nghiệm với hơn 25 năm kinh nghiệm trong chiến lược xếp hạng, định giá và sản phẩm. Tại Verisk, ông lãnh đạo nhóm đứng sau ISO Electronic Rating Content, một tài nguyên được sử dụng rộng rãi trong ngành bảo hiểm. Troy đã giữ các vai trò lãnh đạo tại Earnix và Capgemini và là người đồng sáng lập và tạo ra công cụ Oracle Insbridge Rating Engine ban đầu. |
+| ![](/images/3-Blog/Blog2/10.jpeg) | Corey Finley là Giám đốc Sản phẩm tại Verisk. Corey có hơn 22 năm kinh nghiệm trong lĩnh vực bảo hiểm cá nhân và thương mại. Ông đã làm việc trong cả vai trò triển khai và hỗ trợ sản phẩm và đã dẫn dắt các nỗ lực cho các hãng vận tải lớn bao gồm Allianz, CNA, Citizens và những hãng khác. Tại Verisk, ông giữ chức Giám đốc Sản phẩm cho VRI, RaaS và ERC. |
+| ![](/images/3-Blog/Blog2/11.png) | Arun Pradeep Selvaraj là Kiến trúc sư Giải pháp cấp cao tại Amazon Web Services (AWS). Arun đam mê làm việc với khách hàng và các bên liên quan của mình về chuyển đổi kỹ thuật số và đổi mới trên đám mây trong khi tiếp tục học hỏi, xây dựng và đổi mới. Ông là người sáng tạo, năng động, tận tâm với khách hàng và sử dụng quy trình làm việc ngược để xây dựng các kiến trúc hiện đại nhằm giúp khách hàng giải quyết những thách thức độc đáo của họ. Kết nối với ông trên LinkedIn. |
+| ![](/images/3-Blog/Blog2/12.png) | Ryan Doty là Giám đốc Kiến trúc sư Giải pháp tại Amazon Web Services (AWS), có trụ sở tại New York. Ông giúp khách hàng dịch vụ tài chính đẩy nhanh việc áp dụng AWS Cloud bằng cách cung cấp các hướng dẫn kiến trúc để thiết kế các giải pháp sáng tạo và có khả năng mở rộng. Đến từ nền tảng phát triển phần mềm và kỹ thuật bán hàng, những khả năng mà đám mây có thể mang lại cho thế giới khiến ông rất hào hứng. |
