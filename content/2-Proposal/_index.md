@@ -67,7 +67,7 @@ All of this runs on a serverless AWS architecture:
 
 * **Cost efficiency**
 
-  * Estimated AWS infra cost: **$27.90/month** → **$334.80/12 months**.
+  * Estimated AWS infra cost: **$27.91/month** → **$334.92/12 months**.
   * Implementation effort: **592 hours** total, ≈ **$637.12** in team cost (Solution Architect + Software Engineer + AI Engineer).
 
 ---
@@ -233,8 +233,10 @@ The platform is implemented as a fully serverless, secure, and scalable architec
 | AWS Amplify         | $16.25             | $195.00             |
 | Amazon CloudWatch   | $0.53              | $6.36               |
 | Amazon Bedrock      | $1.13              | $13.56              |
-| **Total**           | **$27.90/month**   | **$334.80/12 months** |
+| Amazon Lambda       | $0.01              | $0.12               |
+| **Total**           | **$27.91/month**   | **$334.92/12 months** |
 
+[AWS Pricing Calculator](https://calculator.aws/#/estimate?id=6af211cf355aa8c5fdea086c5c93f422e7345f19)
 ### Implementation Team Cost
 
 | Role               | Hourly Rate (USD) |

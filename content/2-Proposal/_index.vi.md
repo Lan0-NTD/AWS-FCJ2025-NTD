@@ -66,7 +66,7 @@ Tất cả được vận hành trên kiến trúc AWS Serverless:
 
 * **Hiệu quả chi phí**
 
-  * Chi phí hạ tầng AWS ước tính: **$27.90/tháng** → **$334.80/12 tháng**.
+  * Chi phí hạ tầng AWS ước tính: **$27.91/tháng** → **$334.92/12 tháng**.
   * Nỗ lực triển khai: tổng **592 giờ**, ≈ **$637.12** cho chi phí nhân sự (Solution Architect + Software Engineer + AI Engineer).
 
 ---
@@ -230,7 +230,10 @@ Nền tảng được triển khai dưới dạng kiến trúc serverless hoàn 
 | AWS Amplify         | $16.25             | $195.00             |
 | Amazon CloudWatch   | $0.53              | $6.36               |
 | Amazon Bedrock      | $1.13              | $13.56              |
-| **Total**           | **$27.90/month**   | **$334.80/12 months** |
+| Amazon Lambda       | $0.01              | $0.12               |
+| **Total**           | **$27.91/month**   | **$334.92/12 months** |
+
+[AWS Pricing Calculator](https://calculator.aws/#/estimate?id=6af211cf355aa8c5fdea086c5c93f422e7345f19)
 
 ### Implementation Team Cost
 
