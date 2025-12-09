@@ -386,6 +386,18 @@
                 href="//localhost:1313/vi/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/"
                 />
   </url><url>
+    <loc>//localhost:1313/vi/4-eventparticipated/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/4-eventparticipated/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/4-eventparticipated/"
+                />
+  </url><url>
     <loc>//localhost:1313/vi/5-workshop/5.4-s3-onprem/</loc>
     <xhtml:link
                 rel="alternate"
@@ -444,18 +456,6 @@
                 rel="alternate"
                 hreflang="vi"
                 href="//localhost:1313/vi/5-workshop/5.6-cleanup/"
-                />
-  </url><url>
-    <loc>//localhost:1313/vi/4-eventparticipated/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/4-eventparticipated/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/4-eventparticipated/"
                 />
   </url><url>
     <loc>//localhost:1313/vi/6-self-evaluation/</loc>

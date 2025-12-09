@@ -5,16 +5,16 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-# AI Contract Intelligence Platform - AGREEME
+# Smart Contract Assistant - AGREEME
 
-## A Serverless AWS Solution for Personal Contract Review 
+## A Serverless AWS Solution for Contract Review 
 
 ### TEEJ - AGREEME
 ---
 
 ### 1. Executive Summary
 
-The AI Contract Intelligence Platform is a web-based service for individuals and small user groups (freelancers, small business owners, administrative/legal staff) who work with contracts daily but lack deep legal expertise. The solution uses Amazon Bedrock and a fully serverless AWS architecture to analyze contracts, highlight risks, suggest clause edits, and generate summaries and new contract templates.
+The Smart Contract Assistant - AGREEME is a web-based service for individuals and small user groups (freelancers, small business owners, administrative/legal staff) who work with contracts daily but lack deep legal expertise. The solution uses Amazon Bedrock and a fully serverless AWS architecture to analyze contracts, highlight risks, suggest clause edits, and generate summaries and new contract templates.
 
 Built on AWS Amplify, Lambda, API Gateway, DynamoDB, S3, Cognito, EventBridge, and CloudWatch, the platform delivers low-latency, low-cost, and secure AI-assisted contract review, optimized for single users or small teams without complex enterprise features.
 
