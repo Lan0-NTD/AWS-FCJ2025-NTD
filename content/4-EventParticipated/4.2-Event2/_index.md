@@ -187,8 +187,8 @@ The combination of Amazon Q Developer and KIRO delivers a complete picture of AI
 
 ### **Some photos from the event**
 
-![1](/images/4-Event/4.3-AWS/1.jpeg)
-![2](/images/4-Event/4.3-AWS/2.jpeg)
-![3](/images/4-Event/4.3-AWS/3.jpeg)
-![4](/images/4-Event/4.3-AWS/4.jpeg)
-![5](/images/4-Event/4.3-AWS/5.jpeg)
+![1](/images/4-Event/4.3-AWS/1.JPEG)
+![2](/images/4-Event/4.3-AWS/2.JPEG)
+![3](/images/4-Event/4.3-AWS/3.JPEG)
+![4](/images/4-Event/4.3-AWS/4.JPEG)
+![5](/images/4-Event/4.3-AWS/5.JPEG)
