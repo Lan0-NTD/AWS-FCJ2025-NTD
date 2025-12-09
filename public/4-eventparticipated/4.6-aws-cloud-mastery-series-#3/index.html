@@ -1,0 +1,2350 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.152.0">
+    <meta
+  name="description"
+  content=""
+/>
+<meta name="author" content="thienlh@thienlu.com" />
+
+    <link rel="icon" href="../../images/favicon.png" type="image/png">
+
+    <title>AWS Cloud Mastery Series #3 :: Internship Report</title>
+
+    
+    <link href="../../css/nucleus.css?1765118250" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1765118250" rel="stylesheet">
+    <link href="../../css/hybrid.css?1765118250" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1765118250" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1765118250" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1765118250" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1765118250" rel="stylesheet">
+    <link href="../../css/theme.css?1765118250" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1765118250" rel="stylesheet">
+    
+    <link href="../../css/theme-workshop.css?1765118250" rel="stylesheet">
+    
+    
+
+    <script src="../../js/jquery-3.3.1.min.js?1765118250"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+
+  </head>
+  <body class="" data-url="../../4-eventparticipated/4.6-aws-cloud-mastery-series-%233/">
+    <nav
+  id="sidebar"
+  class="showVisitedLinks"
+>
+   
+  <div id="header-wrapper">
+    <div id="header"><a id="logo" href="../../">
+  <svg
+    id="Layer_1"
+    data-name="Layer 1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 60 30"
+    width="30%"
+  >
+    <defs>
+      <style>
+        .cls-1 {
+          fill: #fff;
+        }
+        .cls-2 {
+          fill: #f90;
+          fill-rule: evenodd;
+        }
+      </style>
+    </defs>
+    <title>AWS-Logo_White-Color</title>
+    <path
+      class="cls-1"
+      d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"
+    ></path>
+  </svg>
+</a>
+</div>
+     <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../js/lunr.min.js?1765118250"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1765118250"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/localhost:1313\/";
+    
+</script>
+<script type="text/javascript" src="../../js/search.js?1765118250"></script>
+ 
+  </div>
+
+  <div class="highlightable">
+    <ul class="topics">
+               
+<li
+  data-nav-id="/1-worklog/"
+  title="Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/">
+     <b> 1. </b> Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/1-worklog/1.1-week1/"
+  title="Week 1 Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.1-week1/">
+     <b> 1.1. </b> Week 1 Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.2-week2/"
+  title="Week 2 Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.2-week2/">
+     <b> 1.2. </b> Week 2 Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.3-week3/"
+  title="Week 3 Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.3-week3/">
+     <b> 1.3. </b> Week 3 Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.4-week4/"
+  title="Week 4 Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.4-week4/">
+     <b> 1.4. </b> Week 4 Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.5-week5/"
+  title="Week 5 Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.5-week5/">
+     <b> 1.5. </b> Week 5 Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.6-week6/"
+  title="Week 6 Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.6-week6/">
+     <b> 1.6. </b> Week 6 Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.7-week7/"
+  title="Week 7 Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.7-week7/">
+     <b> 1.7. </b> Week 7 Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.8-week8/"
+  title="Week 8 Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.8-week8/">
+     <b> 1.8. </b> Week 8 Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.9-week9/"
+  title="Week 9 Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.9-week9/">
+     <b> 1.9. </b> Week 9 Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.10-week10/"
+  title="Week 10 Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.10-week10/">
+     <b> 1.10. </b> Week 10 Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.11-week11/"
+  title="Week 11 Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.11-week11/">
+     <b> 1.11. </b> Week 11 Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.12-week12/"
+  title="Week 12 Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.12-week12/">
+     <b> 1.12. </b> Week 12 Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/2-proposal/"
+  title="Proposal"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../2-proposal/">
+     <b> 2. </b> Proposal 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/3-blogstranslated/"
+  title="Translated Blogs"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/">
+     <b> 3. </b> Translated Blogs 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/3-blogstranslated/3.1-blog1/"
+  title="Blog 1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.1-blog1/">
+     <b> 3.1. </b> Blog 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/3-blogstranslated/3.2-blog2/"
+  title="Blog 2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.2-blog2/">
+     <b> 3.2. </b> Blog 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/3-blogstranslated/3.3-blog3/"
+  title="Blog 3"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.3-blog3/">
+     <b> 3.3. </b> Blog 3 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/3-blogstranslated/3.4-blog4/"
+  title="Blog 4"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.4-blog4/">
+     <b> 3.4. </b> Blog 4 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/3-blogstranslated/3.5-blog5/"
+  title="Blog 5"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.5-blog5/">
+     <b> 3.5. </b> Blog 5 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/3-blogstranslated/3.6-blog6/"
+  title="Blog 6"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.6-blog6/">
+     <b> 3.6. </b> Blog 6 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/4-eventparticipated/"
+  title="Events Participated"
+  class="dd-item 
+        parent
+        
+        
+        "
+>
+  <a href="../../4-eventparticipated/">
+     <b> 4. </b> Events Participated 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/4-eventparticipated/4.1-vietnam-cloud-day-2025/"
+  title="Vietnam Cloud Day 2025"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../4-eventparticipated/4.1-vietnam-cloud-day-2025/">
+     <b> 4.2. </b> Vietnam Cloud Day 2025 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/4-eventparticipated/4.2-ai-driven-development-life-cycle/"
+  title="AI-Driven Development Life Cycle"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../4-eventparticipated/4.2-ai-driven-development-life-cycle/">
+     <b> 4.3. </b> AI-Driven Development Life Cycle 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/4-eventparticipated/4.3-aws-cloud-mastery-series-%231/"
+  title="AWS Cloud Mastery Series #1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../4-eventparticipated/4.3-aws-cloud-mastery-series-%231/">
+     <b> 4.4. </b> AWS Cloud Mastery Series #1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/4-eventparticipated/4.4-aws-cloud-mastery-series-%232/"
+  title="AWS Cloud Mastery Series #2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../4-eventparticipated/4.4-aws-cloud-mastery-series-%232/">
+     <b> 4.5. </b> AWS Cloud Mastery Series #2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/4-eventparticipated/4.6-aws-cloud-mastery-series-%233/"
+  title="AWS Cloud Mastery Series #3"
+  class="dd-item 
+        
+        active
+        
+        "
+>
+  <a href="../../4-eventparticipated/4.6-aws-cloud-mastery-series-%233/">
+     <b> 4.6. </b> AWS Cloud Mastery Series #3 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/5-workshop/"
+  title="Workshop"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/">
+     <b> 5. </b> Workshop 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/5-workshop/5.1-workshop-overview/"
+  title="Introduction"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.1-workshop-overview/">
+     <b> 5.1. </b> Introduction 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.2-prerequiste/"
+  title="Prerequiste"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.2-prerequiste/">
+     <b> 5.2. </b> Prerequiste 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.3-s3-vpc/"
+  title="Access S3 from VPC"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.3-s3-vpc/">
+     <b> 5.3. </b> Access S3 from VPC 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/"
+  title="Create a gateway endpoint"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.3-s3-vpc/5.3.1-create-gwe/">
+     <b> 5.3.1 </b> Create a gateway endpoint 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/"
+  title="Test the Gateway Endpoint"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.3-s3-vpc/5.3.2-test-gwe/">
+     <b> 5.3.2 </b> Test the Gateway Endpoint 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.4-s3-onprem/"
+  title="Access S3 from on-premises"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.4-s3-onprem/">
+     <b> 5.4. </b> Access S3 from on-premises 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/5-workshop/5.4-s3-onprem/5.4.1-prepare/"
+  title="Prepare the environment"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.4-s3-onprem/5.4.1-prepare/">
+     <b> 5.4.1 </b> Prepare the environment 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/"
+  title="Create an S3 Interface endpoint"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/">
+     <b> 5.4.2 </b> Create an S3 Interface endpoint 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/"
+  title="Test the Interface Endpoint"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/">
+     <b> 5.4.3 </b> Test the Interface Endpoint 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/"
+  title="On-premises DNS Simulation"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/">
+     <b> 5.4.4 </b> On-premises DNS Simulation 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.5-policy/"
+  title="VPC Endpoint Policies"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.5-policy/">
+     <b> 5.5. </b> VPC Endpoint Policies 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.6-cleanup/"
+  title="Clean up"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.6-cleanup/">
+     <b> 5.6. </b> Clean up 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/6-self-evaluation/"
+  title="Self-Assessment"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../6-self-evaluation/">
+     <b> 6. </b> Self-Assessment 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/7-feedback/"
+  title="Sharing and Feedback"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../7-feedback/">
+     <b> 7. </b> Sharing and Feedback 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+    </ul>
+
+     
+    <section id="shortcuts">
+      <h3>
+        More
+      </h3>
+      <ul>
+        
+        <li>
+          <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"
+            ><i class='fab fa-facebook'></i> AWS Study Group</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+     
+    <section id="prefooter">
+      <hr />
+      <ul>
+        
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+            <div class="select-style">
+              <select id="select-language" onchange="location = this.value;">
+                       
+                <option
+                  id="en"
+                  value="//localhost:1313/4-eventparticipated/4.6-aws-cloud-mastery-series-%233/"
+                  selected
+                >
+                  English
+                </option>
+                            
+                <option
+                  id="vi"
+                  value="//localhost:1313/vi/4-eventparticipated/4.6-aws-cloud-mastery-series-%233/"
+                >
+                  Tiếng Việt
+                </option>
+                   
+              </select>
+              <svg
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="255px"
+                height="255px"
+                viewBox="0 0 255 255"
+                style="enable-background: new 0 0 255 255"
+                xml:space="preserve"
+              >
+                <g>
+                  <g id="arrow-drop-down">
+                    <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </a>
+        </li>
+         
+        <li>
+          <a class="padding" href="#" data-clear-history-toggle=""
+            ><i class="fas fa-history fa-fw"></i> Clear History</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+    
+    <section id="footer"><left>
+    
+    <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Migrate" Alt="web counter" border="0" /></a> <br>
+    <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Total CLoud Journey" Alt="web counter" border="0" />
+
+</left>
+<left>
+    <br>
+    <br>
+    <b>Last Updated</b><br>
+    <i>
+        <span id="lastUpdated" style="color:orange;"></span>
+    </i>
+
+    <script>
+        
+        const today = new Date();
+        
+        const formattedDate = today.toLocaleDateString('en-GB');
+        
+        document.getElementById('lastUpdated').textContent = formattedDate;
+    </script>
+</left>
+<left>
+    <br>
+    <br>
+    <b> Team </b> <br>
+
+    <i> <a href="https://www.facebook.com/groups/660548818043427" style="color:orange">First Cloud Journey </a> <br>
+
+    </i>
+</left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script></section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../'>Internship Report</a> > <a href='../../4-eventparticipated/'>Events Participated</a> > AWS Cloud Mastery Series #3
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+  <div class="wrapper"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#aws-well-architected-security-pillar">AWS Well-Architected Security Pillar</a></li>
+        <li><a href="#i-general-information-about-the-event">I. General information about the event</a></li>
+        <li><a href="#ii-detailed-content-by-timeline">II. Detailed content by timeline</a></li>
+        <li><a href="#iii-knowledge-and-lessons-learned">III. Knowledge and lessons learned</a></li>
+        <li><a href="#iv-application-roadmap-for-studies-and-personal-projects">IV. Application roadmap for studies and personal projects</a></li>
+        <li><a href="#v-some-photos-from-the-event">V. Some photos from the event</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              AWS Cloud Mastery Series #3
+            </h1>
+          
+
+        
+
+
+
+	<h3 id="aws-well-architected-security-pillar">AWS Well-Architected Security Pillar</h3>
+<h4 id="monday-29112025-from-830--1700--aws-vietnam-office">Monday, 29/11/2025, from 8:30 – 17:00 – AWS Vietnam Office</h4>
+<h3 id="i-general-information-about-the-event">I. General information about the event</h3>
+<ul>
+<li>
+<p><strong>Event name:</strong> AWS Well-Architected Security Pillar</p>
+</li>
+<li>
+<p><strong>Time:</strong> 08:30 – 12:00, 29/11/2025 (morning only)</p>
+</li>
+<li>
+<p><strong>Venue:</strong> AWS Vietnam Office</p>
+</li>
+<li>
+<p><strong>Main objectives:</strong></p>
+<ul>
+<li>Clarify the role of the <strong>Security Pillar</strong> within the <strong>AWS Well-Architected Framework</strong> and the <strong>Shared Responsibility</strong> model.</li>
+<li>Systematize the 5 security pillars: <strong>Identity &amp; Access Management, Detection, Infrastructure Protection, Data Protection, Incident Response</strong>.</li>
+<li>Clarify <strong>best practices</strong> and common “pitfalls” for enterprises, especially in the context of cloud environments in Vietnam.</li>
+<li>Provide a practical perspective through small demos (IAM policy simulation, detection-as-code, network firewall, IR playbook).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="ii-detailed-content-by-timeline">II. Detailed content by timeline</h3>
+<h4 id="21-opening--security-foundation-0830--0850">2.1. Opening &amp; Security Foundation (08:30 – 08:50)</h4>
+<p>The opening session focused on <strong>the overall picture of security on AWS</strong>:</p>
+<ul>
+<li>
+<p><strong>Role of the Security Pillar in Well-Architected</strong></p>
+<ul>
+<li>
+<p>Security was presented as a <strong>mandatory foundation</strong>, not a “nice-to-have” add-on at the end. If you design an architecture while ignoring the Security Pillar, the system is highly likely to encounter situations such as:</p>
+<ul>
+<li><strong>Security breach</strong> (data leakage, exposure of sensitive information).</li>
+<li><strong>System outages</strong> caused by misconfiguration, DDoS attacks, or operational errors.</li>
+<li><strong>Data corruption</strong> or data loss due to lack of backup/encryption.</li>
+<li><strong>Incidents under high traffic</strong> without appropriate protection and monitoring mechanisms.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Core principles:</strong></p>
+<ul>
+<li><strong>Least Privilege:</strong> grant only the exact minimum permissions required.</li>
+<li><strong>Zero Trust:</strong> do not implicitly trust any component, even within the VPC.</li>
+<li><strong>Defense in Depth:</strong> protect at multiple layers (identity, network, application, data, etc.).</li>
+</ul>
+</li>
+<li>
+<p><strong>Shared Responsibility Model:</strong></p>
+<ul>
+<li>AWS is responsible for <strong>“security OF the cloud”</strong> (physical infrastructure, availability zones, hypervisor, etc.).</li>
+<li>Customers are responsible for <strong>“security IN the cloud”</strong> (IAM, service configuration, source code, data, logging, IR, etc.).</li>
+</ul>
+</li>
+<li>
+<p><strong>Top threats in the Vietnamese cloud environment:</strong></p>
+<ul>
+<li>
+<p>Emphasis on common risks:</p>
+<ul>
+<li>Exposure/misuse of <strong>long-lived credentials</strong>.</li>
+<li>Unintentionally public S3 buckets.</li>
+<li>Workloads unnecessarily exposed to the public Internet.</li>
+<li>Lack of logging/monitoring leading to late incident detection.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>This section established the mindset that <strong>security must be designed from the outset</strong>, based on the 5 pillars and shared responsibility, not treated as a “firefighting” exercise after incidents occur.</p>
+<hr>
+<h4 id="22-pillar-1--identity--access-management-0850--0930--modern-iam-architecture">2.2. Pillar 1 – Identity &amp; Access Management (08:50 – 09:30) – Modern IAM Architecture</h4>
+<p>This session focused on modernizing IAM towards <strong>multi-account, SSO, centralized governance</strong>:</p>
+<ul>
+<li>
+<p><strong>IAM: Users, Roles, Policies – avoiding long-term credentials</strong></p>
+<ul>
+<li>Emphasis: do not use long-lived access keys attached to IAM users for workloads; instead use <strong>IAM Roles + temporary credentials</strong>.</li>
+<li>Apply the <strong>principle of least privilege</strong> in every policy; avoid overusing <code>&quot;Action&quot;: &quot;*&quot;</code>, <code>&quot;Resource&quot;: &quot;*&quot;</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>IAM Identity Center &amp; AWS Organizations</strong></p>
+<ul>
+<li>IAM Identity Center was introduced as an <strong>SSO solution</strong> to centrally manage access across multiple accounts and applications.</li>
+<li>Enabling SSO typically goes together with <strong>AWS Organizations</strong>, so it is necessary to clearly design the <strong>organizational structure + account structure</strong> from the beginning (prod / non-prod / security / logging, etc.).</li>
+</ul>
+</li>
+<li>
+<p><strong>SCPs – Service Control Policies</strong></p>
+<ul>
+<li>
+<p>The speaker compared SCPs to <strong>“prohibition signs”</strong>, whereas IAM policies are the “driver’s license”:</p>
+<ul>
+<li>IAM policies <strong>grant permissions</strong>.</li>
+<li>SCPs define the <strong>maximum ceiling</strong> of permissions that can be granted within an account/OU.</li>
+</ul>
+</li>
+<li>
+<p>Principle: SCPs do not grant permissions; they only <strong>filter</strong> what IAM is allowed to grant.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Permission Boundaries</strong></p>
+<ul>
+<li>
+<p>Described as an “advanced IAM” tool for handling complex delegation use cases:</p>
+<ul>
+<li>Allow teams to create IAM roles/users themselves while still being constrained by a “maximum permission boundary”.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>MFA, Credential Rotation, IAM Access Analyzer</strong></p>
+<ul>
+<li><strong>MFA:</strong> comparison between <strong>TOTP</strong> and <strong>FIDO2</strong>, with a recommendation to enable MFA for the root account and critical identities.</li>
+<li><strong>Credential rotation:</strong> use <strong>AWS Secrets Manager</strong> to automatically rotate secrets, avoiding static secrets.</li>
+<li><strong>IAM Access Analyzer:</strong> analyzes policies/conditions to detect unintended access (public, cross-account, etc.) and sends alerts when risks are found.</li>
+</ul>
+</li>
+<li>
+<p><strong>Mini Demo: Validate IAM Policy + simulate access</strong></p>
+<ul>
+<li>Demo illustrated using tools to <strong>validate IAM policies</strong> and “simulate” what an identity is effectively allowed to do on a resource, helping avoid misconfiguration before going to production.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="23-pillar-2--detection--continuous-monitoring-0930--0955">2.3. Pillar 2 – Detection &amp; Continuous Monitoring (09:30 – 09:55)</h4>
+<p>This section, presented by <strong>Đức Anh, Tuấn Thịnh, Thanh Đạt</strong>, focused on <strong>detection &amp; continuous monitoring</strong>:</p>
+<ul>
+<li>
+<p><strong>AWS CloudTrail (Đức Anh)</strong></p>
+<ul>
+<li>
+<p>Described as the “backbone” of detection on AWS:</p>
+<ul>
+<li>
+<p>Logs and centrally monitors <strong>all API calls</strong> across all accounts.</p>
+</li>
+<li>
+<p>Provides <strong>multi-layer security visibility</strong>:</p>
+<ul>
+<li><strong>Management events</strong> (configuration changes).</li>
+<li><strong>Data events</strong> (S3 object access, Lambda invoke, etc.).</li>
+<li><strong>Network activity events</strong>.</li>
+<li><strong>Organization-wide coverage</strong> when enabled at the organization level.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Integrated with <strong>EventBridge</strong> to:</p>
+<ul>
+<li>Receive real-time events.</li>
+<li>Automatically send notifications or trigger workflows (Lambda, SNS, SQS, Step Functions).</li>
+<li>Support the <strong>detection-as-code</strong> concept: detection rules are also managed as code.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Amazon GuardDuty (Tuấn Thịnh)</strong></p>
+<ul>
+<li>
+<p>Focused on <strong>threat detection</strong> based on:</p>
+<ul>
+<li>VPC Flow Logs, CloudTrail, DNS logs, and various other sources.</li>
+</ul>
+</li>
+<li>
+<p>Notes mentioned <strong>Advanced Protection Plans</strong>:</p>
+<ul>
+<li>Additional protection for S3, EKS, RDS, Lambda, runtime monitoring.</li>
+</ul>
+</li>
+<li>
+<p>GuardDuty can integrate with EventBridge to <strong>automate response</strong> (send notifications, isolate instances, etc.) and also fits the <strong>detection-as-code</strong> model.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>AWS Security Hub CSPM (Thanh Đạt)</strong></p>
+<ul>
+<li>
+<p>Addresses the challenge: <strong>many services, many accounts, many compliance standards</strong> → difficult to manage manually.</p>
+</li>
+<li>
+<p>Key points:</p>
+<ul>
+<li>Standardizes outputs into <strong>ASFF</strong> (AWS Security Finding Format).</li>
+<li>Detects <strong>misconfigurations</strong>, assesses <strong>security posture</strong>.</li>
+<li>Applies standards such as <strong>AWS Foundational Security Best Practices</strong>, <strong>CIS Foundations Benchmark</strong>.</li>
+<li>Supports the <strong>detection-as-code</strong> model with centralized control for multi-account, multi-region environments.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="24-pillar-3--infrastructure-protection-1010--1040--network--workload-security">2.4. Pillar 3 – Infrastructure Protection (10:10 – 10:40) – Network &amp; Workload Security</h4>
+<p>This section, presented by <strong>Kha</strong>, revolved around <strong>network and workload security</strong>:</p>
+<ul>
+<li>
+<p><strong>Common Network Attack Vectors &amp; Use Cases</strong></p>
+<ul>
+<li>Analyzed common attack vectors: inbound, outbound, east–west (between VPCs/subnets/workloads).</li>
+</ul>
+</li>
+<li>
+<p><strong>AWS Layered Security &amp; VPC Controls</strong></p>
+<ul>
+<li>
+<p><strong>Security Groups (SG):</strong></p>
+<ul>
+<li><strong>Stateful:</strong> when inbound is allowed, the corresponding outbound is automatically allowed.</li>
+<li>No “deny” rules, only allow rules.</li>
+<li>Supports <strong>security group sharing</strong> (RAM) and <strong>security group referencing</strong> across VPCs/accounts.</li>
+</ul>
+</li>
+<li>
+<p><strong>Network ACLs (NACLs):</strong></p>
+<ul>
+<li>Attached at the <strong>subnet</strong> layer, typically used for coarse-grained policies.</li>
+<li>Supports both allow and deny rules.</li>
+<li>Drawback: limited rule count and relatively simple inspection.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>DNS &amp; Perimeter Protection</strong></p>
+<ul>
+<li>
+<p><strong>Amazon Route 53:</strong> mentioned in its role as DNS:</p>
+<ul>
+<li>Private DNS, VPC DNS, Public DNS.</li>
+<li>Supports <strong>DNS filtering</strong>, centralized rule and reporting management, suitable for both <strong>cloud-only</strong> and <strong>hybrid network</strong> models.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>AWS Network Firewall</strong></p>
+<ul>
+<li>
+<p>Focus on:</p>
+<ul>
+<li><strong>Egress filtering</strong>, <strong>environment segmentation</strong>, <strong>intrusion prevention</strong>.</li>
+</ul>
+</li>
+<li>
+<p>Supports both <strong>stateless</strong> and <strong>stateful rules</strong>, integrates with <strong>Transit Gateway</strong>, multi-VPC endpoints to control traffic across many VPCs.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>In addition, the agenda emphasized <strong>AWS WAF + AWS Shield</strong> as the web application and DDoS protection layers, placed at the edge (ALB/CloudFront) in a defense-in-depth model.</p>
+<hr>
+<h4 id="25-pillar-4--data-protection-1040--1110--encryption-keys--secrets">2.5. Pillar 4 – Data Protection (10:40 – 11:10) – Encryption, Keys &amp; Secrets</h4>
+<p>This section, presented by <strong>Thịnh Lâm and Việt Nguyễn</strong>, focused on <strong>encryption and key/secret management</strong>:</p>
+<ul>
+<li>
+<p><strong>AWS KMS (Key Management Service)</strong></p>
+<ul>
+<li>Clarified the concepts of <strong>master key</strong> and <strong>data key</strong>, and how data keys are generated and encrypted by master keys.</li>
+<li><strong>Key policy</strong>: only principals explicitly defined in the policy can use the key; even administrators cannot use it if they are not included.</li>
+<li>Distinguished between <strong>managed keys</strong> and <strong>CMKs (customer-managed keys)</strong>; CMKs can be configured for automatic or manual rotation.</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Classification &amp; Guardrails</strong></p>
+<ul>
+<li>Notes mentioned <strong>Amazon Macie</strong> to scan S3 buckets and identify sensitive data (PII, critical documents).</li>
+<li>Establish <strong>guardrails</strong>: for example, policies that deny access if S3 objects are not encrypted, enforcing encryption for sensitive data.</li>
+</ul>
+</li>
+<li>
+<p><strong>Encryption in Transit</strong></p>
+<ul>
+<li>
+<p>List of services to consider:</p>
+<ul>
+<li>S3 &amp; DynamoDB at the API level.</li>
+<li>RDS (SSL), EBS &amp; Nitro (encryption on the wire), ACM (issuing TLS certificates).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Secrets Manager &amp; Rotation</strong></p>
+<ul>
+<li>Use <strong>Secrets Manager</strong> to store credentials, connection strings, API keys, etc.</li>
+<li>Supports automatic <strong>rotation</strong>, integrates with KMS to encrypt secrets.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="26-pillar-5--incident-response-1110--1140--ir-playbook--automation">2.6. Pillar 5 – Incident Response (11:10 – 11:40) – IR Playbook &amp; Automation</h4>
+<p>This section, shared by <strong>Long and Tịnh Trương</strong>, focused on <strong>incident response (IR) processes</strong>:</p>
+<ul>
+<li>
+<p><strong>Context:</strong></p>
+<ul>
+<li>Modern environments (multi-account, many services, hybrid) are too complex to “firefight manually”.</li>
+<li>Types of incidents: security breaches, system outages, data corruption, high traffic, etc., require structured processes and a high degree of automation.</li>
+</ul>
+</li>
+<li>
+<p><strong>Security Responsibilities are Shared</strong></p>
+<ul>
+<li>
+<p>Revisited the <strong>Shared Responsibility Model</strong> and listed key foundational services that should be enabled for security:</p>
+<ul>
+<li>AWS Organizations + SCP</li>
+<li>CloudTrail</li>
+<li>AWS Config</li>
+<li>GuardDuty</li>
+<li>Security Hub</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Prevention Guidelines (prevention over cure)</strong></p>
+<ul>
+<li><strong>Kill long-lived credentials</strong> – eliminate long-term access keys.</li>
+<li><strong>Never expose S3</strong> – do not public S3 unless truly necessary and strictly controlled.</li>
+<li><strong>No facing internet</strong> for workloads that do not need public access.</li>
+<li><strong>Everything through IaC</strong> – all infrastructure changes should go through code.</li>
+<li><strong>Double gate high-risk changes</strong> – add extra approval layers for high-risk changes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Incident Response Process (according to AWS)</strong></p>
+<ul>
+<li>
+<p>The standard IR process includes:</p>
+<ol>
+<li><strong>Prepare</strong> – build playbooks, assign roles, prepare tools in advance.</li>
+<li><strong>Detection &amp; Analysis</strong> – detect via GuardDuty/Security Hub/CloudTrail, analyze impact.</li>
+<li><strong>Containment</strong> – isolate the source of the incident (isolate instance, revoke keys, etc.).</li>
+<li><strong>Eradication &amp; Recovery</strong> – remove the root cause, restore systems from snapshots/backups.</li>
+<li><strong>Post-incident</strong> – review, extract lessons learned, update playbooks.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Specific playbooks mentioned in the agenda:</strong></p>
+<ul>
+<li><strong>Compromised IAM key.</strong></li>
+<li><strong>S3 public exposure.</strong></li>
+<li><strong>EC2 malware detection.</strong></li>
+<li>Common steps include: snapshotting, isolation, evidence collection, and automation using <strong>Lambda/Step Functions</strong> for recurring scenarios.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="27-wrap-up--qa-1140--1200">2.7. Wrap-Up &amp; Q&amp;A (11:40 – 12:00)</h4>
+<p>The wrap-up emphasized:</p>
+<ul>
+<li>
+<p>The <strong>5 Security Pillars</strong> must be seen as a cohesive framework, not separate elements.</p>
+</li>
+<li>
+<p><strong>Common pitfalls</strong> of Vietnamese enterprises:</p>
+<ul>
+<li>Lack of standardized IAM (frequent use of root, long-lived credentials).</li>
+<li>Not enabling CloudTrail/GuardDuty/Security Hub comprehensively.</li>
+<li>Unintentionally public S3 or endpoints without guardrails.</li>
+</ul>
+</li>
+<li>
+<p>Suggested <strong>learning roadmap</strong>: AWS Certified Security – Specialty, then advanced Security topics within the Solutions Architect Professional track.</p>
+</li>
+</ul>
+<hr>
+<h3 id="iii-knowledge-and-lessons-learned">III. Knowledge and lessons learned</h3>
+<ol>
+<li>
+<p><strong>Security must be architected from day one, not patched after incidents</strong></p>
+<ul>
+<li>The continuous reference to the Security Pillar in the Well-Architected Framework reinforced the idea that if the architecture does not enforce IAM, logging, network segmentation, encryption, etc. from the beginning, the cost of remediation later will be very high.</li>
+</ul>
+</li>
+<li>
+<p><strong>Modern IAM = multi-account, SSO, SCP, permission boundaries, rotation, MFA</strong></p>
+<ul>
+<li>IAM is not just “creating users and attaching policies”; it is a multi-layer architecture: Organizations, IAM Identity Center, SCPs, permission boundaries, Access Analyzer, etc., combined to deliver both flexibility and security.</li>
+</ul>
+</li>
+<li>
+<p><strong>Detection-as-Code is essential in complex cloud environments</strong></p>
+<ul>
+<li>Instead of manually inspecting logs, all detection rules (CloudTrail, GuardDuty, Security Hub) should be described as code, versioned, and deployed via pipelines – similar to how we manage IaC.</li>
+</ul>
+</li>
+<li>
+<p><strong>Infrastructure security is not just “closing ports” but designing the network correctly</strong></p>
+<ul>
+<li>Clearly distinguishing the roles of SGs vs NACLs, and the roles of Route 53, Network Firewall, etc., shows that security must be tightly coupled with multi-layer network architecture.</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Protection and IR are the final links but critically important</strong></p>
+<ul>
+<li>It is not enough to encrypt data (KMS, encryption in transit); we must also classify data (Macie), enforce guardrails that deny non-encrypted resources, and manage secrets properly.</li>
+<li>Without pre-prepared IR playbooks, teams will become “overwhelmed” when real incidents occur.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="iv-application-roadmap-for-studies-and-personal-projects">IV. Application roadmap for studies and personal projects</h3>
+<ol>
+<li>
+<p><strong>Standardize IAM &amp; multi-account for lab/personal project environments</strong></p>
+<ul>
+<li>Apply a minimal model of <strong>AWS Organizations + IAM Identity Center + SCP</strong>, avoiding putting everything into a single account.</li>
+<li>Gradually remove long-lived credentials, replace them with roles + temporary credentials, and enable MFA for critical accounts.</li>
+</ul>
+</li>
+<li>
+<p><strong>Establish a detection foundation for every workload</strong></p>
+<ul>
+<li>Enable <strong>CloudTrail at the org level</strong>, activate <strong>GuardDuty</strong> and <strong>Security Hub</strong> across all personal lab accounts, at least at a baseline level.</li>
+<li>Experiment with some <strong>detection-as-code</strong> rules (for example: S3 public access, security groups open to 0.0.0.0/0, credentials not rotated, etc.).</li>
+</ul>
+</li>
+<li>
+<p><strong>Redesign VPC/network towards defense-in-depth</strong></p>
+<ul>
+<li>Split VPCs into clear public/private subnets; minimize workloads directly exposed to the Internet.</li>
+<li>Use security groups with meaningful semantics (by service role), NACLs at the subnet level, and consider experimenting with Network Firewall/Route 53 DNS filtering in advanced labs.</li>
+</ul>
+</li>
+<li>
+<p><strong>Apply Data Protection &amp; IR to projects with sensitive data</strong></p>
+<ul>
+<li>
+<p>For projects involving contracts and user data, plan to use <strong>KMS, S3 encryption, RDS encryption</strong>, Secrets Manager, and Macie.</p>
+</li>
+<li>
+<p>Build a <strong>simple IR playbook</strong> for lab environments:</p>
+<ul>
+<li>Scenario where an access key is exposed.</li>
+<li>Scenario where an S3 bucket becomes public.</li>
+</ul>
+</li>
+<li>
+<p>Experiment with Lambda/Step Functions to automatically isolate resources or revoke credentials in certain simulated scenarios.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Plan to pursue Security Specialty</strong></p>
+<ul>
+<li>
+<p>The event reaffirmed that this is an area in which I need to invest seriously if I want to build AI/ML systems and enterprise applications on AWS in a secure and sustainable way. In my roadmap, I intend to:</p>
+<ul>
+<li>Further consolidate knowledge of the Well-Architected Security Pillar and AWS SRA (Security Reference Architecture).</li>
+<li>Then aim for <strong>AWS Certified Security – Specialty</strong> as a medium-term goal.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>This reflection helps me synthesize the entire content of the 29/11 session according to the 5 Security Pillar components and clearly shape how to apply them to real-world systems that I am building or will build on AWS.</p>
+<h3 id="v-some-photos-from-the-event">V. Some photos from the event</h3>
+<p><img src="../../images/4-Event/4.6-AWS/1.jpeg" alt="1">
+<img src="../../images/4-Event/4.6-AWS/2.jpeg" alt="2">
+<img src="../../images/4-Event/4.6-AWS/3.jpeg" alt="3">
+<img src="../../images/4-Event/4.6-AWS/4.jpeg" alt="4">
+<img src="../../images/4-Event/4.6-AWS/5.jpeg" alt="5"></p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../4-eventparticipated/4.4-aws-cloud-mastery-series-%232/" title="AWS Cloud Mastery Series #2"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../5-workshop/" title="Workshop" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../js/clipboard.min.js?1765118250"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1765118250"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1765118250"></script>
+    <script src="../../js/jquery.sticky.js?1765118250"></script>
+    <script src="../../js/featherlight.min.js?1765118250"></script>
+    <script src="../../js/highlight.pack.js?1765118250"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1765118250"></script>
+    <script src="../../js/learn.js?1765118250"></script>
+    <script src="../../js/hugo-learn.js?1765118250"></script>
+
+    <link href="../../mermaid/mermaid.css?1765118250" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1765118250"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function (i, s, o, g, r, a, m) {
+    i["GoogleAnalyticsObject"] = r;
+    ((i[r] =
+      i[r] ||
+      function () {
+        (i[r].q = i[r].q || []).push(arguments);
+      }),
+      (i[r].l = 1 * new Date()));
+    ((a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]));
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m);
+  })(
+    window,
+    document,
+    "script",
+    "https://www.google-analytics.com/analytics.js",
+    "ga",
+  );
+
+  ga("create", "UA-158079754-2", "auto");
+  ga("send", "pageview");
+</script>
+
+  </body>
+</html>

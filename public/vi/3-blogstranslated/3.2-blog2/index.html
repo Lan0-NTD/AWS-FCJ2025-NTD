@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.152.0">
+    <meta
+  name="description"
+  content=""
+/>
+<meta name="author" content="thienlh@thienlu.com" />
+
+    <link rel="icon" href="../../../images/favicon.png" type="image/png">
+
+    <title>Tối ưu hóa việc truy cập thay đổi nội dung xếp hạng ISO với Verisk Rating Insights và Amazon Bedrock :: Báo cáo thực tập</title>
+
+    
+    <link href="../../../css/nucleus.css?1765232845" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1765232845" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1765232845" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1765232845" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1765232845" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1765232845" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1765232845" rel="stylesheet">
+    <link href="../../../css/theme.css?1765232845" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1765232845" rel="stylesheet">
+    
+    <link href="../../../css/theme-workshop.css?1765232845" rel="stylesheet">
+    
+    
+
+    <script src="../../../js/jquery-3.3.1.min.js?1765232845"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+
+  </head>
+  <body class="" data-url="../../../vi/3-blogstranslated/3.2-blog2/">
+    <nav
+  id="sidebar"
+  class="showVisitedLinks"
+>
+   
+  <div id="header-wrapper">
+    <div id="header"><a id="logo" href="../../../">
+  <svg
+    id="Layer_1"
+    data-name="Layer 1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 60 30"
+    width="30%"
+  >
+    <defs>
+      <style>
+        .cls-1 {
+          fill: #fff;
+        }
+        .cls-2 {
+          fill: #f90;
+          fill-rule: evenodd;
+        }
+      </style>
+    </defs>
+    <title>AWS-Logo_White-Color</title>
+    <path
+      class="cls-1"
+      d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"
+    ></path>
+  </svg>
+</a>
+</div>
+     <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../../js/lunr.min.js?1765232845"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1765232845"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/localhost:1313\/\/vi";
+    
+</script>
+<script type="text/javascript" src="../../../js/search.js?1765232845"></script>
+ 
+  </div>
+
+  <div class="highlightable">
+    <ul class="topics">
+               
+<li
+  data-nav-id="/vi/1-worklog/"
+  title="Nhật ký công việc"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/">
+     <b> 1. </b> Nhật ký công việc 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/1-worklog/1.1-week1/"
+  title="Worklog Tuần 1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.1-week1/">
+     <b> 1.1. </b> Worklog Tuần 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.2-week2/"
+  title="Worklog Tuần 2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.2-week2/">
+     <b> 1.2. </b> Worklog Tuần 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.3-week3/"
+  title="Worklog Tuần 3"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.3-week3/">
+     <b> 1.3. </b> Worklog Tuần 3 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.4-week4/"
+  title="Worklog Tuần 4"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.4-week4/">
+     <b> 1.4. </b> Worklog Tuần 4 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.5-week5/"
+  title="Worklog Tuần 5"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.5-week5/">
+     <b> 1.5. </b> Worklog Tuần 5 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.6-week6/"
+  title="Worklog Tuần 6"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.6-week6/">
+     <b> 1.6. </b> Worklog Tuần 6 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.7-week7/"
+  title="Worklog Tuần 7"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.7-week7/">
+     <b> 1.7. </b> Worklog Tuần 7 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.8-week8/"
+  title="Worklog Tuần 8"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.8-week8/">
+     <b> 1.8. </b> Worklog Tuần 8 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.9-week9/"
+  title="Worklog Tuần 9"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.9-week9/">
+     <b> 1.9. </b> Worklog Tuần 9 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.10-week10/"
+  title="Worklog Tuần 10"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.10-week10/">
+     <b> 1.10. </b> Worklog Tuần 10 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.11-week11/"
+  title="Worklog Tuần 11"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.11-week11/">
+     <b> 1.11. </b> Worklog Tuần 11 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.12-week12/"
+  title="Worklog Tuần 12"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.12-week12/">
+     <b> 1.12 </b> Worklog Tuần 12 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/2-proposal/"
+  title="Bản đề xuất"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/2-proposal/">
+     <b> 2. </b> Bản đề xuất 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/vi/3-blogstranslated/"
+  title="Các bài blogs đã dịch"
+  class="dd-item 
+        parent
+        
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/">
+     <b> 3. </b> Các bài blogs đã dịch 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.1-blog1/"
+  title="Lớp truy cập hợp nhất đa phương thức cho Poe của Quora sử dụng Amazon Bedrock"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/3.1-blog1/">
+     <b> 3.1. </b> Lớp truy cập hợp nhất đa phương thức cho Poe của Quora sử dụng Amazon Bedrock 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.2-blog2/"
+  title="Tối ưu hóa việc truy cập thay đổi nội dung xếp hạng ISO với Verisk Rating Insights và Amazon Bedrock"
+  class="dd-item 
+        
+        active
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/3.2-blog2/">
+     <b> 3.2. </b> Tối ưu hóa việc truy cập thay đổi nội dung xếp hạng ISO với Verisk Rating Insights và Amazon Bedrock 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.3-blog3/"
+  title="Cách Ngân hàng Bưu điện Ba Lan tăng tốc chuyển đổi số trong khi vẫn duy trì tuân thủ quy định trên AWS"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/3.3-blog3/">
+     <b> 3.3. </b> Cách Ngân hàng Bưu điện Ba Lan tăng tốc chuyển đổi số trong khi vẫn duy trì tuân thủ quy định trên AWS 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/5-workshop/"
+  title="Workshop"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/">
+     <b> 5. </b> Workshop 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.1-workshop-overview/"
+  title="Giới thiệu"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.1-workshop-overview/">
+     <b> 5.1. </b> Giới thiệu 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.2-prerequiste/"
+  title="Các bước chuẩn bị"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.2-prerequiste/">
+     <b> 5.2. </b> Các bước chuẩn bị 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-s3-vpc/"
+  title="Truy cập S3 từ VPC"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.3-s3-vpc/">
+     <b> 5.3. </b> Truy cập S3 từ VPC 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/"
+  title="Tạo một Gateway Endpoint"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/">
+     <b> 5.3.1 </b> Tạo một Gateway Endpoint 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/"
+  title="Kiểm tra Gateway Endpoint"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/">
+     <b> 5.3.2 </b> Kiểm tra Gateway Endpoint 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/"
+  title="Truy cập S3 từ môi trường truyền thống"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-s3-onprem/">
+     <b> 5.4. </b> Truy cập S3 từ môi trường truyền thống 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.1-prepare/"
+  title="Chuẩn bị tài nguyên"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-s3-onprem/5.4.1-prepare/">
+     <b> 5.4.1 </b> Chuẩn bị tài nguyên 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/"
+  title="Tạo một S3 Interface endpoint"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/">
+     <b> 5.4.2 </b> Tạo một S3 Interface endpoint 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/"
+  title="Kiểm tra Interface Endpoint"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/">
+     <b> 5.4.3 </b> Kiểm tra Interface Endpoint 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/"
+  title="Mô phỏng On-premises DNS "
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/">
+     <b> 5.4.4 </b> Mô phỏng On-premises DNS  
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.5-policy/"
+  title="VPC Endpoint Policies"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.5-policy/">
+     <b> 5.5 </b> VPC Endpoint Policies 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.6-cleanup/"
+  title="Dọn dẹp tài nguyên"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.6-cleanup/">
+     <b> 5.6. </b> Dọn dẹp tài nguyên 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/4-eventparticipated/"
+  title="Sự kiện đã tham gia"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/">
+     <b> 4. </b> Sự kiện đã tham gia 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.1-event1/"
+  title="Vietnam Cloud Day 2025"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/4.1-event1/">
+     <b> 4.1. </b> Vietnam Cloud Day 2025 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.2-event2/"
+  title="AI-Driven Development Life Cycle"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/4.2-event2/">
+     <b> 4.2. </b> AI-Driven Development Life Cycle 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.3-event3/"
+  title="AWS Cloud Mastery Series #1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/4.3-event3/">
+     <b> 4.3. </b> AWS Cloud Mastery Series #1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.4-event4/"
+  title="AWS Cloud Mastery Series #2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/4.4-event4/">
+     <b> 4.4. </b> AWS Cloud Mastery Series #2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.5-event5/"
+  title="AWS Cloud Mastery Series #3"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/4.5-event5/">
+     <b> 4.5. </b> AWS Cloud Mastery Series #3 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/6-self-evaluation/"
+  title="Tự đánh giá"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/6-self-evaluation/">
+     <b> 6. </b> Tự đánh giá 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/vi/7-feedback/"
+  title="Chia sẻ, đóng góp ý kiến"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/7-feedback/">
+     <b> 7. </b> Chia sẻ, đóng góp ý kiến 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+    </ul>
+
+     
+    <section id="shortcuts">
+      <h3>
+        More
+      </h3>
+      <ul>
+        
+        <li>
+          <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"
+            ><i class='fab fa-facebook'></i> AWS Study Group</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+     
+    <section id="prefooter">
+      <hr />
+      <ul>
+        
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+            <div class="select-style">
+              <select id="select-language" onchange="location = this.value;">
+                       
+                <option
+                  id="en"
+                  value="//localhost:1313/3-blogstranslated/3.2-blog2/"
+                >
+                  English
+                </option>
+                            
+                <option
+                  id="vi"
+                  value="//localhost:1313/vi/3-blogstranslated/3.2-blog2/"
+                  selected
+                >
+                  Tiếng Việt
+                </option>
+                   
+              </select>
+              <svg
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="255px"
+                height="255px"
+                viewBox="0 0 255 255"
+                style="enable-background: new 0 0 255 255"
+                xml:space="preserve"
+              >
+                <g>
+                  <g id="arrow-drop-down">
+                    <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </a>
+        </li>
+         
+        <li>
+          <a class="padding" href="#" data-clear-history-toggle=""
+            ><i class="fas fa-history fa-fw"></i> Clear History</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+    
+    <section id="footer"><left>
+    
+    <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Migrate" Alt="web counter" border="0" /></a> <br>
+    <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Total CLoud Journey" Alt="web counter" border="0" />
+
+</left>
+<left>
+    <br>
+    <br>
+    <b>Last Updated</b><br>
+    <i>
+        <span id="lastUpdated" style="color:orange;"></span>
+    </i>
+
+    <script>
+        
+        const today = new Date();
+        
+        const formattedDate = today.toLocaleDateString('en-GB');
+        
+        document.getElementById('lastUpdated').textContent = formattedDate;
+    </script>
+</left>
+<left>
+    <br>
+    <br>
+    <b> Team </b> <br>
+
+    <i> <a href="https://www.facebook.com/groups/660548818043427" style="color:orange">First Cloud Journey </a> <br>
+
+    </i>
+</left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script></section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../../vi/'>Báo cáo thực tập</a> > <a href='../../../vi/3-blogstranslated/'>Các bài blogs đã dịch</a> > Tối ưu hóa việc truy cập thay đổi nội dung xếp hạng ISO với Verisk Rating Insights và Amazon Bedrock
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+  <div class="wrapper"><nav id="TableOfContents"></nav></div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Tối ưu hóa việc truy cập thay đổi nội dung xếp hạng ISO với Verisk Rating Insights và Amazon Bedrock
+            </h1>
+          
+
+        
+
+
+
+	<p><em>Bởi Samit Verma, Eusha Rizvi, Manmeet Singh, Troy Smith, Corey Finley, Arun Pradeep Selvaraj, và Ryan Doty – đăng ngày 16 tháng 9 năm 2025| Chủ đề: <a href="https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-machine-learning/amazon-bedrock/">Amazon Bedrock</a>, <a href="https://aws.amazon.com/blogs/machine-learning/category/database/amazon-elasticache/">Amazon ElastiCache</a>, <a href="https://aws.amazon.com/blogs/machine-learning/category/analytics/amazon-elasticsearch-service/">Amazon OpenSearch Service</a>, <a href="https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/">Artificial Intelligence</a>, <a href="https://aws.amazon.com/blogs/machine-learning/category/post-types/customer-solutions/">Customer Solutions</a>, <a href="https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/generative-ai/">Generative AI</a></em></p>
+<p><em>Bài viết này được đồng tác giả bởi Samit Verma, Eusha Rizvi, Manmeet Singh, Troy Smith, và Corey Finley từ Verisk.</em></p>
+<p>Verisk Rating Insights, là một tính năng thuộc <a href="https://www.verisk.com/insurance/products/iso-electronic-rating-content/">ISO Electronic Rating Content (ERC)</a> — một công cụ mạnh mẽ được thiết kế để cung cấp tóm tắt về các thay đổi trong ISO Rating giữa hai phiên bản phát hành.</p>
+<p>Trước đây, việc trích xuất thông tin cụ thể từ hồ sơ hoặc xác định sự khác biệt giữa nhiều phiên bản đòi hỏi người dùng phải tải xuống thủ công toàn bộ gói dữ liệu, một quy trình mất thời gian và dễ xảy ra sai sót.</p>
+<p>Thách thức này, kết hợp với nhu cầu về độ chính xác cao và hỗ trợ khách hàng kịp thời, đã thúc đẩy Verisk tìm kiếm các phương pháp đổi mới nhằm nâng cao khả năng truy cập và tự động hóa các quy trình lặp lại.</p>
+<p>Bằng việc sử dụng trí tuệ nhân tạo sinh (Generative AI) và các dịch vụ từ <a href="https://aws.amazon.com/">Amazon Web Services (AWS)</a>, Verisk đã đạt được những bước tiến đáng kể trong việc xây dựng giao diện hội thoại thông minh, giúp người dùng truy xuất thông tin nhanh chóng, xác định khác biệt nội dung, và nâng cao hiệu suất vận hành tổng thể.</p>
+<p>Trong bài viết này, chúng ta sẽ tìm hiểu cách Verisk Rating Insights, được hỗ trợ bởi <a href="https://aws.amazon.com/bedrock/">Amazon Bedrock</a>, mô hình ngôn ngữ lớn (LLM), và Retrieval Augmented Generation (RAG), đang thay đổi cách khách hàng tương tác và truy cập các thay đổi trong nội dung ISO ERC.</p>
+<p><strong>Thách thức</strong></p>
+<p>Rating Insights cung cấp nội dung có giá trị, nhưng có những thách thức đáng kể về khả năng tiếp cận của người dùng và thời gian cần thiết để trích xuất thông tin chi tiết có thể hành động:</p>
+<ol>
+<li><strong>Tải xuống thủ công</strong> – Khách hàng phải tải xuống toàn bộ gói để có được một phần nhỏ thông tin liên quan. Điều này không hiệu quả, đặc biệt khi chỉ cần xem xét một phần của hồ sơ.</li>
+<li><strong>Truy xuất dữ liệu không hiệu quả</strong> – Người dùng không thể nhanh chóng xác định sự khác biệt giữa hai gói nội dung mà không cần tải xuống và so sánh thủ công, có thể mất hàng giờ và đôi khi là nhiều ngày phân tích.</li>
+<li><strong>Hỗ trợ khách hàng tốn thời gian</strong> – Nhóm hỗ trợ khách hàng ERC của Verisk đã dành 15% thời gian hàng tuần để giải quyết các truy vấn từ những khách hàng bị ảnh hưởng bởi những sự thiếu hiệu quả này. Hơn nữa, việc giới thiệu khách hàng mới yêu cầu nửa ngày đào tạo lặp đi lặp lại để đảm bảo họ hiểu cách truy cập và diễn giải dữ liệu.</li>
+<li><strong>Thời gian phân tích thủ công</strong> – Khách hàng thường dành 3–4 giờ cho mỗi trường hợp thử nghiệm để phân tích sự khác biệt giữa các hồ sơ. Với nhiều trường hợp thử nghiệm cần giải quyết, điều này dẫn đến sự chậm trễ đáng kể trong việc ra quyết định quan trọng.</li>
+</ol>
+<p><strong>Tổng quan giải pháp</strong></p>
+<p>Để giải quyết những thách thức này, Verisk đã bắt tay vào hành trình nâng cao Rating Insights bằng các công nghệ AI tạo sinh. Bằng cách tích hợp <a href="https://aws.amazon.com/bedrock/claude/">Anthropic’s Claude</a>, có sẵn trong Amazon Bedrock và <a href="https://aws.amazon.com/opensearch-service/">Amazon OpenSearch Service</a>, Verisk đã tạo ra một nền tảng hội thoại tinh vi nơi người dùng có thể dễ dàng truy cập và phân tích các thay đổi nội dung xếp hạng.</p>
+<p>Sơ đồ sau minh họa kiến trúc cấp cao của giải pháp, với các phần riêng biệt hiển thị quy trình nhập dữ liệu và vòng lặp suy luận. Kiến trúc sử dụng nhiều dịch vụ AWS để thêm khả năng AI tạo sinh vào hệ thống Ratings Insight. Các thành phần của hệ thống này hoạt động cùng nhau một cách liền mạch, điều phối nhiều lệnh gọi LLM để tạo phản hồi cho người dùng.<br>
+<img src="../../../3-blogstranslated/3.2-blog2/1.png" alt=""></p>
+<p>Sơ đồ sau cho thấy các thành phần kiến trúc và các bước cấp cao liên quan đến quy trình nhập dữ liệu.<br>
+<img src="../../../3-blogstranslated/3.2-blog2/2.png" alt="">
+Các bước trong quy trình nhập dữ liệu diễn ra như sau:</p>
+<ol>
+<li>Quá trình này được kích hoạt khi một tệp mới được thả vào. Nó chịu trách nhiệm phân đoạn tài liệu bằng cách sử dụng chiến lược phân đoạn tùy chỉnh. Chiến lược này kiểm tra đệ quy từng phần và giữ chúng nguyên vẹn mà không chồng chéo. Sau đó, quá trình nhúng các đoạn và lưu trữ chúng trong OpenSearch Service dưới dạng nhúng vectơ.</li>
+<li>Mô hình nhúng được sử dụng trong Amazon Bedrock là amazon titan-embed-g1-text-02.</li>
+<li>Amazon OpenSearch Serverless được sử dụng làm kho lưu trữ nhúng vectơ với khả năng lọc siêu dữ liệu.</li>
+</ol>
+<p>Sơ đồ sau cho thấy các thành phần kiến trúc và các bước cấp cao liên quan đến vòng lặp suy luận để tạo phản hồi cho người dùng.<br>
+<img src="../../../3-blogstranslated/3.2-blog2/3.png" alt="">
+Các bước trong vòng lặp suy luận diễn ra như sau:</p>
+<ol>
+<li>Thành phần này chịu trách nhiệm thực hiện nhiều tác vụ: nó bổ sung các câu hỏi của người dùng bằng lịch sử trò chuyện gần đây, nhúng các câu hỏi, truy xuất các đoạn liên quan từ cơ sở dữ liệu vectơ và cuối cùng gọi mô hình tạo sinh để tổng hợp phản hồi.</li>
+<li>Amazon ElastiCache được sử dụng để lưu trữ lịch sử trò chuyện gần đây.</li>
+<li>Mô hình nhúng được sử dụng trong Amazon Bedrock là amazon titan-embed-g1-text-02.</li>
+<li>OpenSearch Serverless được triển khai cho RAG (Retrieval-Augmented Generation).</li>
+<li>Để tạo phản hồi cho các truy vấn của người dùng, hệ thống sử dụng Anthropic’s Claude Sonnet 3.5 (ID mô hình: anthropic.claude-3-5-sonnet-20240620-v1:0), có sẵn thông qua Amazon Bedrock.</li>
+</ol>
+<p><strong>Các công nghệ và khung công tác chính được sử dụng</strong></p>
+<p>Chúng tôi đã sử dụng Anthropic’s Claude Sonnet 3.5 (ID mô hình: anthropic.claude-3-5-sonnet-20240620-v1:0) để hiểu đầu vào của người dùng và cung cấp các phản hồi chi tiết, có liên quan theo ngữ cảnh. Anthropic’s Claude Sonnet 3.5 nâng cao khả năng của nền tảng để diễn giải các truy vấn của người dùng và cung cấp thông tin chi tiết chính xác từ các thay đổi nội dung phức tạp. LlamaIndex, một khung công tác mã nguồn mở, đóng vai trò là khung chuỗi để kết nối và quản lý hiệu quả các nguồn dữ liệu khác nhau nhằm cho phép truy xuất nội dung và thông tin chi tiết một cách linh hoạt.</p>
+<p>Chúng tôi đã triển khai RAG, cho phép mô hình kéo dữ liệu cụ thể, có liên quan từ cơ sở dữ liệu vectơ OpenSearch Serverless. Điều này có nghĩa là hệ thống tạo ra các phản hồi chính xác, cập nhật dựa trên truy vấn của người dùng mà không cần phải sàng lọc các bản tải xuống nội dung khổng lồ. Cơ sở dữ liệu vectơ cho phép tìm kiếm và truy xuất thông minh, tổ chức các thay đổi nội dung theo cách giúp chúng có thể truy cập nhanh chóng và dễ dàng. Điều này loại bỏ nhu cầu tìm kiếm thủ công hoặc tải xuống toàn bộ gói nội dung. Verisk đã áp dụng các biện pháp bảo vệ trong <a href="https://aws.amazon.com/bedrock/guardrails/">Amazon Bedrock Guardrails</a> cùng với các biện pháp bảo vệ tùy chỉnh xung quanh mô hình tạo sinh để đầu ra tuân thủ các tiêu chuẩn chất lượng và tuân thủ cụ thể, bảo vệ tính toàn vẹn của các phản hồi.</p>
+<p>Giải pháp AI tạo sinh của Verisk là một dịch vụ toàn diện, an toàn và linh hoạt để xây dựng các ứng dụng và tác nhân AI tạo sinh. Amazon Bedrock kết nối bạn với các FM hàng đầu, các dịch vụ để triển khai và vận hành tác nhân, và các công cụ để tinh chỉnh, bảo vệ và tối ưu hóa các mô hình cùng với các cơ sở kiến thức để kết nối các ứng dụng với dữ liệu mới nhất của bạn để bạn có mọi thứ bạn cần để nhanh chóng chuyển từ thử nghiệm sang triển khai thực tế.</p>
+<p>Với sự mới lạ của AI tạo sinh, Verisk đã thành lập một hội đồng quản trị để giám sát các giải pháp của mình, đảm bảo chúng đáp ứng các tiêu chuẩn bảo mật, tuân thủ và sử dụng dữ liệu. Verisk đã triển khai các biện pháp kiểm soát chặt chẽ trong đường ống RAG để đảm bảo dữ liệu chỉ có thể truy cập được đối với những người dùng được ủy quyền. Điều này giúp duy trì tính toàn vẹn và quyền riêng tư của thông tin nhạy cảm. Các đánh giá pháp lý đảm bảo bảo vệ IP và tuân thủ hợp đồng.</p>
+<p><strong>Cách hoạt động</strong></p>
+<p>Việc tích hợp các công nghệ tiên tiến này cho phép trải nghiệm liền mạch, thân thiện với người dùng. Đây là cách Verisk Rating Insights hiện hoạt động đối với khách hàng:</p>
+<ol>
+<li><strong>Giao diện người dùng hội thoại</strong> – Người dùng có thể tương tác với nền tảng bằng cách sử dụng giao diện hội thoại. Thay vì xem xét thủ công các gói nội dung, người dùng nhập một truy vấn ngôn ngữ tự nhiên (ví dụ: “Những thay đổi về phạm vi bảo hiểm giữa hai hồ sơ gần đây là gì?”). Hệ thống sử dụng Anthropic’s Claude Sonnet 3.5 để hiểu ý định và cung cấp tóm tắt tức thì về các thay đổi liên quan.</li>
+<li><strong>Truy xuất nội dung động</strong> – Nhờ RAG và OpenSearch Service, nền tảng không yêu cầu tải xuống toàn bộ tệp. Thay vào đó, nó tự động truy xuất và trình bày các thay đổi cụ thể mà người dùng đang tìm kiếm, cho phép phân tích và ra quyết định nhanh hơn.</li>
+<li><strong>Phân tích sự khác biệt tự động</strong> – Hệ thống có thể tự động so sánh hai gói nội dung, làm nổi bật sự khác biệt mà không cần can thiệp thủ công. Người dùng có thể truy vấn để so sánh chính xác (ví dụ: “Cho tôi xem sự khác biệt về tiêu chí xếp hạng giữa Bản phát hành 1 và Bản phát hành 2”).</li>
+<li><strong>Thông tin chi tiết tùy chỉnh</strong> – Các biện pháp bảo vệ được áp dụng có nghĩa là các phản hồi chính xác, tuân thủ và có thể hành động. Ngoài ra, nếu cần, hệ thống có thể giúp người dùng hiểu tác động của các thay đổi và hỗ trợ họ điều hướng sự phức tạp của các hồ sơ, cung cấp thông tin chi tiết rõ ràng, súc tích.</li>
+</ol>
+<p>Sơ đồ sau cho thấy các thành phần kiến trúc và các bước cấp cao liên quan đến vòng lặp đánh giá để tạo ra các phản hồi có liên quan và có cơ sở.<br>
+<img src="../../../3-blogstranslated/3.2-blog2/4.png" alt=""></p>
+<p>Các bước trong vòng lặp đánh giá diễn ra như sau:</p>
+<ol>
+<li>Thành phần này chịu trách nhiệm gọi mô hình Anthropic’s Claude Sonnet 3.5 và sau đó gọi các API đánh giá tùy chỉnh để đảm bảo độ chính xác của phản hồi.</li>
+<li>Mô hình tạo sinh được sử dụng là Anthropic’s Claude Sonnet 3.5, xử lý việc tạo ra các phản hồi.</li>
+<li>API đánh giá đảm bảo rằng các phản hồi vẫn phù hợp với các truy vấn của người dùng và vẫn nằm trong ngữ cảnh được cung cấp.</li>
+</ol>
+<p>Sơ đồ sau cho thấy quá trình ghi lại lịch sử trò chuyện làm bộ nhớ ngữ cảnh và lưu trữ để phân tích.<br>
+<img src="../../../3-blogstranslated/3.2-blog2/5.png" alt=""></p>
+<p><strong>Các tiêu chuẩn chất lượng</strong><br>
+Nhóm Verisk Rating Insights đã triển khai một khung đánh giá toàn diện và cơ chế vòng lặp phản hồi tương ứng, được hiển thị trong các hình trên, để hỗ trợ cải tiến liên tục và giải quyết các vấn đề có thể phát sinh.</p>
+<p>Đảm bảo độ chính xác và nhất quán cao trong các phản hồi là điều cần thiết đối với các giải pháp AI tạo sinh của Verisk. Tuy nhiên, LLM đôi khi có thể tạo ra ảo giác hoặc cung cấp các chi tiết không liên quan, ảnh hưởng đến độ tin cậy. Để giải quyết vấn đề này, Verisk đã triển khai:</p>
+<ul>
+<li><strong>Khung đánh giá</strong> – Được tích hợp vào đường ống truy vấn, nó xác thực các phản hồi về độ chính xác và mức độ liên quan trước khi phân phối.</li>
+<li><strong>Kiểm tra rộng rãi</strong> – Các chuyên gia về chủ đề sản phẩm (SME) và chuyên gia chất lượng đã kiểm tra nghiêm ngặt giải pháp để đảm bảo độ chính xác và độ tin cậy. Verisk đã hợp tác với các chuyên gia về lĩnh vực bảo hiểm nội bộ để phát triển các số liệu đánh giá SME về độ chính xác và tính nhất quán. Nhiều vòng đánh giá SME đã được thực hiện, trong đó các chuyên gia chấm điểm các số liệu này trên thang điểm từ 1–10. Độ trễ cũng được theo dõi để đánh giá tốc độ. Phản hồi từ mỗi vòng được đưa vào các thử nghiệm tiếp theo để thúc đẩy cải tiến.</li>
+<li><strong>Cải tiến mô hình liên tục</strong> – Sử dụng phản hồi của khách hàng đóng vai trò là một thành phần quan trọng trong việc thúc đẩy sự phát triển và tinh chỉnh liên tục của các mô hình tạo sinh, cải thiện cả độ chính xác và mức độ liên quan. Bằng cách tích hợp liền mạch các tương tác và phản hồi của người dùng với lịch sử trò chuyện, một đường ống dữ liệu mạnh mẽ được tạo ra để truyền các tương tác của người dùng đến một <a href="https://aws.amazon.com/s3/">Amazon Simple Storage Service</a> (Amazon S3) bucket, hoạt động như một trung tâm dữ liệu. Các tương tác sau đó đi vào Snowflake, là một nền tảng dữ liệu dựa trên đám mây và kho dữ liệu dưới dạng dịch vụ cung cấp các khả năng như kho dữ liệu, hồ dữ liệu, chia sẻ dữ liệu và trao đổi dữ liệu. Thông qua việc tích hợp này, chúng tôi đã xây dựng các bảng điều khiển phân tích toàn diện cung cấp thông tin chi tiết có giá trị về các mẫu trải nghiệm người dùng và các điểm khó khăn.</li>
+</ul>
+<p>Mặc dù kết quả ban đầu đầy hứa hẹn, nhưng chúng không đạt được mức độ chính xác và nhất quán mong muốn. Quá trình phát triển bao gồm một số cải tiến lặp đi lặp lại, chẳng hạn như thiết kế lại hệ thống và thực hiện nhiều lệnh gọi đến LLM. Số liệu chính để thành công là một hệ thống chấm điểm thủ công, nơi các chuyên gia kinh doanh so sánh kết quả và cung cấp phản hồi liên tục để cải thiện các tiêu chuẩn tổng thể.</p>
+<p><strong>Tác động và cơ hội kinh doanh</strong></p>
+<p>Bằng cách tích hợp AI tạo sinh vào Verisk Rating Insights, doanh nghiệp đã chứng kiến một sự chuyển đổi đáng kể. Khách hàng đã tiết kiệm đáng kể thời gian. Bằng cách loại bỏ nhu cầu tải xuống toàn bộ gói và tìm kiếm sự khác biệt theo cách thủ công, thời gian dành cho phân tích đã giảm đáng kể. Khách hàng không còn mất 3–4 giờ cho mỗi trường hợp thử nghiệm. Những gì trước đây mất nhiều ngày giờ đây chỉ mất vài phút.</p>
+<p>Việc tiết kiệm thời gian này mang lại năng suất tăng lên. Với một giải pháp tự động cung cấp thông tin chi tiết liên quan ngay lập tức, khách hàng có thể tập trung nhiều hơn vào việc ra quyết định thay vì dành thời gian truy xuất dữ liệu thủ công. Và bằng cách tự động hóa phân tích sự khác biệt và cung cấp một nền tảng tập trung, dễ dàng, khách hàng có thể tự tin hơn vào độ chính xác của kết quả và tránh bỏ lỡ những thay đổi quan trọng.</p>
+<p>Đối với Verisk, lợi ích là giảm gánh nặng hỗ trợ khách hàng vì nhóm hỗ trợ khách hàng ERC hiện dành ít thời gian hơn để giải quyết các truy vấn. Với giao diện hội thoại được hỗ trợ bởi AI, người dùng có thể tự phục vụ và nhận câu trả lời trong thời gian thực, giải phóng tài nguyên hỗ trợ cho các yêu cầu phức tạp hơn.</p>
+<p>Việc tự động hóa các tác vụ đào tạo lặp đi lặp lại có nghĩa là giới thiệu khách hàng nhanh hơn và hiệu quả hơn. Điều này làm giảm nhu cầu về các buổi đào tạo dài dòng, và khách hàng mới nhanh chóng trở nên thành thạo hơn. Việc tích hợp AI tạo sinh đã giảm các quy trình làm việc dư thừa và nhu cầu can thiệp thủ công. Điều này hợp lý hóa các hoạt động trên nhiều phòng ban, dẫn đến một doanh nghiệp linh hoạt và phản ứng nhanh hơn.</p>
+<p><strong>Kết luận</strong></p>
+<p>Trong tương lai, Verisk có kế hoạch tiếp tục nâng cao nền tảng Rating Insights theo hai hướng. Thứ nhất, chúng tôi sẽ mở rộng phạm vi truy vấn, cho phép các truy vấn phức tạp hơn liên quan đến các loại hồ sơ khác nhau và các lĩnh vực bảo hiểm tinh tế hơn. Thứ hai, chúng tôi sẽ mở rộng quy mô nền tảng. Với Amazon Bedrock cung cấp cơ sở hạ tầng, Verisk đặt mục tiêu mở rộng giải pháp này hơn nữa để hỗ trợ nhiều người dùng và các bộ nội dung bổ sung trên các dòng sản phẩm khác nhau.</p>
+<p>Verisk Rating Insights, hiện được hỗ trợ bởi AI tạo sinh và các công nghệ AWS, đã thay đổi cách khách hàng tương tác và truy cập các thay đổi nội dung xếp hạng. Thông qua giao diện người dùng hội thoại, RAG và cơ sở dữ liệu vectơ, Verisk có ý định loại bỏ sự thiếu hiệu quả và tiết kiệm thời gian và tài nguyên quý giá cho khách hàng đồng thời nâng cao khả năng tiếp cận tổng thể. Đối với Verisk, giải pháp này đã cải thiện hiệu quả hoạt động và cung cấp một nền tảng vững chắc cho sự đổi mới liên tục.</p>
+<p>Với Amazon Bedrock và sự tập trung vào tự động hóa, Verisk đang thúc đẩy tương lai của hỗ trợ khách hàng thông minh và quản lý nội dung, trao quyền cho cả khách hàng và đội ngũ nội bộ của họ để đưa ra các quyết định thông minh hơn, nhanh hơn.</p>
+<p>Để biết thêm thông tin, hãy tham khảo các tài nguyên sau:</p>
+<ul>
+<li><a href="https://aws.amazon.com/generative-ai/">Khám phá AI tạo sinh trên AWS</a></li>
+<li>Tìm hiểu về <a href="https://aws.amazon.com/executive-insights/generative-ai-ml/">khai thác giá trị kinh doanh của AI tạo sinh</a></li>
+<li>Tìm hiểu thêm về <a href="https://aws.amazon.com/bedrock/claude/">các mô hình Claude 3 của Anthropic trên Amazon Bedrock</a></li>
+<li><a href="https://aws.amazon.com/bedrock">Tìm hiểu về Amazon Bedrock</a> và cách xây dựng và mở rộng các ứng dụng AI tạo sinh với FM</li>
+<li>Khám phá <a href="https://github.com/aws-samples/genai-quickstart-pocs">các bằng chứng khái niệm khởi động nhanh AI tạo sinh</a></li>
+</ul>
+<p><strong>Về các tác giả</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><img src="../../../3-blogstranslated/3.2-blog2/6.png" alt=""></th>
+          <th style="text-align: left">Samit Verma là Giám đốc Kỹ thuật Phần mềm tại Verisk, giám sát các nhóm phát triển Xếp hạng và Bảo hiểm. Trong vai trò này, ông đóng vai trò quan trọng trong thiết kế kiến trúc và cung cấp định hướng chiến lược cho nhiều nhóm phát triển, nâng cao hiệu quả và đảm bảo khả năng duy trì giải pháp lâu dài. Ông có bằng thạc sĩ về công nghệ thông tin.</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><img src="../../../3-blogstranslated/3.2-blog2/7.jpeg" alt=""></td>
+          <td style="text-align: left">Eusha Rizvi là Giám đốc Phát triển Phần mềm tại Verisk, lãnh đạo một số nhóm công nghệ trong bộ phận Sản phẩm Xếp hạng. Với chuyên môn vững chắc về thiết kế, kiến trúc và kỹ thuật hệ thống, Eusha cung cấp hướng dẫn thiết yếu để thúc đẩy sự phát triển của các giải pháp đổi mới. Ông có bằng cử nhân về hệ thống thông tin từ Đại học Stony Brook.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><img src="../../../3-blogstranslated/3.2-blog2/8.png" alt=""></td>
+          <td style="text-align: left">Manmeet Singh là Trưởng nhóm Kỹ thuật Phần mềm tại Verisk và là Chuyên gia AI tạo sinh được chứng nhận AWS. Ông lãnh đạo việc phát triển một hệ thống AI tạo sinh dựa trên RAG trên Amazon Bedrock, với chuyên môn về điều phối LLM, kỹ thuật nhắc nhở, cơ sở dữ liệu vectơ, vi dịch vụ và kiến trúc có độ khả dụng cao. Manmeet đam mê áp dụng các công nghệ AI và điện toán đám mây tiên tiến để cung cấp các hệ thống linh hoạt, có khả năng mở rộng và quan trọng đối với doanh nghiệp.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><img src="../../../3-blogstranslated/3.2-blog2/9.png" alt=""></td>
+          <td style="text-align: left">Troy Smith là Phó Chủ tịch Giải pháp Xếp hạng tại Verisk. Troy là một nhà lãnh đạo công nghệ bảo hiểm dày dạn kinh nghiệm với hơn 25 năm kinh nghiệm trong chiến lược xếp hạng, định giá và sản phẩm. Tại Verisk, ông lãnh đạo nhóm đứng sau ISO Electronic Rating Content, một tài nguyên được sử dụng rộng rãi trong ngành bảo hiểm. Troy đã giữ các vai trò lãnh đạo tại Earnix và Capgemini và là người đồng sáng lập và tạo ra công cụ Oracle Insbridge Rating Engine ban đầu.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><img src="../../../3-blogstranslated/3.2-blog2/10.jpeg" alt=""></td>
+          <td style="text-align: left">Corey Finley là Giám đốc Sản phẩm tại Verisk. Corey có hơn 22 năm kinh nghiệm trong lĩnh vực bảo hiểm cá nhân và thương mại. Ông đã làm việc trong cả vai trò triển khai và hỗ trợ sản phẩm và đã dẫn dắt các nỗ lực cho các hãng vận tải lớn bao gồm Allianz, CNA, Citizens và những hãng khác. Tại Verisk, ông giữ chức Giám đốc Sản phẩm cho VRI, RaaS và ERC.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><img src="../../../3-blogstranslated/3.2-blog2/11.png" alt=""></td>
+          <td style="text-align: left">Arun Pradeep Selvaraj là Kiến trúc sư Giải pháp cấp cao tại Amazon Web Services (AWS). Arun đam mê làm việc với khách hàng và các bên liên quan của mình về chuyển đổi kỹ thuật số và đổi mới trên đám mây trong khi tiếp tục học hỏi, xây dựng và đổi mới. Ông là người sáng tạo, năng động, tận tâm với khách hàng và sử dụng quy trình làm việc ngược để xây dựng các kiến trúc hiện đại nhằm giúp khách hàng giải quyết những thách thức độc đáo của họ. Kết nối với ông trên LinkedIn.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><img src="../../../3-blogstranslated/3.2-blog2/12.png" alt=""></td>
+          <td style="text-align: left">Ryan Doty là Giám đốc Kiến trúc sư Giải pháp tại Amazon Web Services (AWS), có trụ sở tại New York. Ông giúp khách hàng dịch vụ tài chính đẩy nhanh việc áp dụng AWS Cloud bằng cách cung cấp các hướng dẫn kiến trúc để thiết kế các giải pháp sáng tạo và có khả năng mở rộng. Đến từ nền tảng phát triển phần mềm và kỹ thuật bán hàng, những khả năng mà đám mây có thể mang lại cho thế giới khiến ông rất hào hứng.</td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../../vi/3-blogstranslated/3.1-blog1/" title="Lớp truy cập hợp nhất đa phương thức cho Poe của Quora sử dụng Amazon Bedrock"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../../vi/3-blogstranslated/3.3-blog3/" title="Cách Ngân hàng Bưu điện Ba Lan tăng tốc chuyển đổi số trong khi vẫn duy trì tuân thủ quy định trên AWS" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../../js/clipboard.min.js?1765232845"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1765232845"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765232845"></script>
+    <script src="../../../js/jquery.sticky.js?1765232845"></script>
+    <script src="../../../js/featherlight.min.js?1765232845"></script>
+    <script src="../../../js/highlight.pack.js?1765232845"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1765232845"></script>
+    <script src="../../../js/learn.js?1765232845"></script>
+    <script src="../../../js/hugo-learn.js?1765232845"></script>
+
+    <link href="../../../mermaid/mermaid.css?1765232845" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1765232845"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function (i, s, o, g, r, a, m) {
+    i["GoogleAnalyticsObject"] = r;
+    ((i[r] =
+      i[r] ||
+      function () {
+        (i[r].q = i[r].q || []).push(arguments);
+      }),
+      (i[r].l = 1 * new Date()));
+    ((a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]));
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m);
+  })(
+    window,
+    document,
+    "script",
+    "https://www.google-analytics.com/analytics.js",
+    "ga",
+  );
+
+  ga("create", "UA-158079754-2", "auto");
+  ga("send", "pageview");
+</script>
+
+  </body>
+</html>

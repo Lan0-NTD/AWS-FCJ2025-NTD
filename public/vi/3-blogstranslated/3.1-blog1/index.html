@@ -1,0 +1,2536 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.152.0">
+    <meta
+  name="description"
+  content=""
+/>
+<meta name="author" content="thienlh@thienlu.com" />
+
+    <link rel="icon" href="../../../images/favicon.png" type="image/png">
+
+    <title>Lớp truy cập hợp nhất đa phương thức cho Poe của Quora sử dụng Amazon Bedrock :: Báo cáo thực tập</title>
+
+    
+    <link href="../../../css/nucleus.css?1765232845" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1765232845" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1765232845" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1765232845" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1765232845" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1765232845" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1765232845" rel="stylesheet">
+    <link href="../../../css/theme.css?1765232845" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1765232845" rel="stylesheet">
+    
+    <link href="../../../css/theme-workshop.css?1765232845" rel="stylesheet">
+    
+    
+
+    <script src="../../../js/jquery-3.3.1.min.js?1765232845"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+
+  </head>
+  <body class="" data-url="../../../vi/3-blogstranslated/3.1-blog1/">
+    <nav
+  id="sidebar"
+  class="showVisitedLinks"
+>
+   
+  <div id="header-wrapper">
+    <div id="header"><a id="logo" href="../../../">
+  <svg
+    id="Layer_1"
+    data-name="Layer 1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 60 30"
+    width="30%"
+  >
+    <defs>
+      <style>
+        .cls-1 {
+          fill: #fff;
+        }
+        .cls-2 {
+          fill: #f90;
+          fill-rule: evenodd;
+        }
+      </style>
+    </defs>
+    <title>AWS-Logo_White-Color</title>
+    <path
+      class="cls-1"
+      d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"
+    ></path>
+  </svg>
+</a>
+</div>
+     <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../../js/lunr.min.js?1765232845"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1765232845"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/localhost:1313\/\/vi";
+    
+</script>
+<script type="text/javascript" src="../../../js/search.js?1765232845"></script>
+ 
+  </div>
+
+  <div class="highlightable">
+    <ul class="topics">
+               
+<li
+  data-nav-id="/vi/1-worklog/"
+  title="Nhật ký công việc"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/">
+     <b> 1. </b> Nhật ký công việc 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/1-worklog/1.1-week1/"
+  title="Worklog Tuần 1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.1-week1/">
+     <b> 1.1. </b> Worklog Tuần 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.2-week2/"
+  title="Worklog Tuần 2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.2-week2/">
+     <b> 1.2. </b> Worklog Tuần 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.3-week3/"
+  title="Worklog Tuần 3"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.3-week3/">
+     <b> 1.3. </b> Worklog Tuần 3 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.4-week4/"
+  title="Worklog Tuần 4"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.4-week4/">
+     <b> 1.4. </b> Worklog Tuần 4 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.5-week5/"
+  title="Worklog Tuần 5"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.5-week5/">
+     <b> 1.5. </b> Worklog Tuần 5 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.6-week6/"
+  title="Worklog Tuần 6"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.6-week6/">
+     <b> 1.6. </b> Worklog Tuần 6 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.7-week7/"
+  title="Worklog Tuần 7"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.7-week7/">
+     <b> 1.7. </b> Worklog Tuần 7 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.8-week8/"
+  title="Worklog Tuần 8"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.8-week8/">
+     <b> 1.8. </b> Worklog Tuần 8 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.9-week9/"
+  title="Worklog Tuần 9"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.9-week9/">
+     <b> 1.9. </b> Worklog Tuần 9 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.10-week10/"
+  title="Worklog Tuần 10"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.10-week10/">
+     <b> 1.10. </b> Worklog Tuần 10 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.11-week11/"
+  title="Worklog Tuần 11"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.11-week11/">
+     <b> 1.11. </b> Worklog Tuần 11 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.12-week12/"
+  title="Worklog Tuần 12"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.12-week12/">
+     <b> 1.12 </b> Worklog Tuần 12 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/2-proposal/"
+  title="Bản đề xuất"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/2-proposal/">
+     <b> 2. </b> Bản đề xuất 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/vi/3-blogstranslated/"
+  title="Các bài blogs đã dịch"
+  class="dd-item 
+        parent
+        
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/">
+     <b> 3. </b> Các bài blogs đã dịch 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.1-blog1/"
+  title="Lớp truy cập hợp nhất đa phương thức cho Poe của Quora sử dụng Amazon Bedrock"
+  class="dd-item 
+        
+        active
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/3.1-blog1/">
+     <b> 3.1. </b> Lớp truy cập hợp nhất đa phương thức cho Poe của Quora sử dụng Amazon Bedrock 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.2-blog2/"
+  title="Tối ưu hóa việc truy cập thay đổi nội dung xếp hạng ISO với Verisk Rating Insights và Amazon Bedrock"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/3.2-blog2/">
+     <b> 3.2. </b> Tối ưu hóa việc truy cập thay đổi nội dung xếp hạng ISO với Verisk Rating Insights và Amazon Bedrock 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.3-blog3/"
+  title="Cách Ngân hàng Bưu điện Ba Lan tăng tốc chuyển đổi số trong khi vẫn duy trì tuân thủ quy định trên AWS"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/3.3-blog3/">
+     <b> 3.3. </b> Cách Ngân hàng Bưu điện Ba Lan tăng tốc chuyển đổi số trong khi vẫn duy trì tuân thủ quy định trên AWS 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/5-workshop/"
+  title="Workshop"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/">
+     <b> 5. </b> Workshop 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.1-workshop-overview/"
+  title="Giới thiệu"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.1-workshop-overview/">
+     <b> 5.1. </b> Giới thiệu 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.2-prerequiste/"
+  title="Các bước chuẩn bị"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.2-prerequiste/">
+     <b> 5.2. </b> Các bước chuẩn bị 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-s3-vpc/"
+  title="Truy cập S3 từ VPC"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.3-s3-vpc/">
+     <b> 5.3. </b> Truy cập S3 từ VPC 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/"
+  title="Tạo một Gateway Endpoint"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/">
+     <b> 5.3.1 </b> Tạo một Gateway Endpoint 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/"
+  title="Kiểm tra Gateway Endpoint"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/">
+     <b> 5.3.2 </b> Kiểm tra Gateway Endpoint 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/"
+  title="Truy cập S3 từ môi trường truyền thống"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-s3-onprem/">
+     <b> 5.4. </b> Truy cập S3 từ môi trường truyền thống 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.1-prepare/"
+  title="Chuẩn bị tài nguyên"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-s3-onprem/5.4.1-prepare/">
+     <b> 5.4.1 </b> Chuẩn bị tài nguyên 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/"
+  title="Tạo một S3 Interface endpoint"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/">
+     <b> 5.4.2 </b> Tạo một S3 Interface endpoint 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/"
+  title="Kiểm tra Interface Endpoint"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/">
+     <b> 5.4.3 </b> Kiểm tra Interface Endpoint 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/"
+  title="Mô phỏng On-premises DNS "
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/">
+     <b> 5.4.4 </b> Mô phỏng On-premises DNS  
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.5-policy/"
+  title="VPC Endpoint Policies"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.5-policy/">
+     <b> 5.5 </b> VPC Endpoint Policies 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.6-cleanup/"
+  title="Dọn dẹp tài nguyên"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.6-cleanup/">
+     <b> 5.6. </b> Dọn dẹp tài nguyên 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/4-eventparticipated/"
+  title="Sự kiện đã tham gia"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/">
+     <b> 4. </b> Sự kiện đã tham gia 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.1-event1/"
+  title="Vietnam Cloud Day 2025"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/4.1-event1/">
+     <b> 4.1. </b> Vietnam Cloud Day 2025 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.2-event2/"
+  title="AI-Driven Development Life Cycle"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/4.2-event2/">
+     <b> 4.2. </b> AI-Driven Development Life Cycle 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.3-event3/"
+  title="AWS Cloud Mastery Series #1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/4.3-event3/">
+     <b> 4.3. </b> AWS Cloud Mastery Series #1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.4-event4/"
+  title="AWS Cloud Mastery Series #2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/4.4-event4/">
+     <b> 4.4. </b> AWS Cloud Mastery Series #2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.5-event5/"
+  title="AWS Cloud Mastery Series #3"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/4.5-event5/">
+     <b> 4.5. </b> AWS Cloud Mastery Series #3 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/6-self-evaluation/"
+  title="Tự đánh giá"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/6-self-evaluation/">
+     <b> 6. </b> Tự đánh giá 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/vi/7-feedback/"
+  title="Chia sẻ, đóng góp ý kiến"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/7-feedback/">
+     <b> 7. </b> Chia sẻ, đóng góp ý kiến 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+    </ul>
+
+     
+    <section id="shortcuts">
+      <h3>
+        More
+      </h3>
+      <ul>
+        
+        <li>
+          <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"
+            ><i class='fab fa-facebook'></i> AWS Study Group</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+     
+    <section id="prefooter">
+      <hr />
+      <ul>
+        
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+            <div class="select-style">
+              <select id="select-language" onchange="location = this.value;">
+                       
+                <option
+                  id="en"
+                  value="//localhost:1313/3-blogstranslated/3.1-blog1/"
+                >
+                  English
+                </option>
+                            
+                <option
+                  id="vi"
+                  value="//localhost:1313/vi/3-blogstranslated/3.1-blog1/"
+                  selected
+                >
+                  Tiếng Việt
+                </option>
+                   
+              </select>
+              <svg
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="255px"
+                height="255px"
+                viewBox="0 0 255 255"
+                style="enable-background: new 0 0 255 255"
+                xml:space="preserve"
+              >
+                <g>
+                  <g id="arrow-drop-down">
+                    <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </a>
+        </li>
+         
+        <li>
+          <a class="padding" href="#" data-clear-history-toggle=""
+            ><i class="fas fa-history fa-fw"></i> Clear History</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+    
+    <section id="footer"><left>
+    
+    <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Migrate" Alt="web counter" border="0" /></a> <br>
+    <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Total CLoud Journey" Alt="web counter" border="0" />
+
+</left>
+<left>
+    <br>
+    <br>
+    <b>Last Updated</b><br>
+    <i>
+        <span id="lastUpdated" style="color:orange;"></span>
+    </i>
+
+    <script>
+        
+        const today = new Date();
+        
+        const formattedDate = today.toLocaleDateString('en-GB');
+        
+        document.getElementById('lastUpdated').textContent = formattedDate;
+    </script>
+</left>
+<left>
+    <br>
+    <br>
+    <b> Team </b> <br>
+
+    <i> <a href="https://www.facebook.com/groups/660548818043427" style="color:orange">First Cloud Journey </a> <br>
+
+    </i>
+</left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script></section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../../vi/'>Báo cáo thực tập</a> > <a href='../../../vi/3-blogstranslated/'>Các bài blogs đã dịch</a> > Lớp truy cập hợp nhất đa phương thức cho Poe của Quora sử dụng Amazon Bedrock
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+  <div class="wrapper"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#quora-và-amazon-bedrock"><strong>Quora và Amazon Bedrock</strong></a></li>
+        <li><a href="#thách-thức-kỹ-thuật-kết-nối-các-hệ-thống-khác-nhau"><strong>Thách thức kỹ thuật: Kết nối các hệ thống khác nhau</strong></a></li>
+        <li><a href="#sự-khác-biệt-về-kiến-trúc"><strong>Sự khác biệt về kiến trúc</strong></a></li>
+        <li><a href="#tiến-hóa-của-api-và-converse-api"><strong>Tiến hóa của API và Converse API</strong></a></li>
+        <li><a href="#tổng-quan-giải-pháp"><strong>Tổng quan giải pháp</strong></a></li>
+        <li><a href="#mẫu-cấu-hình-cho-triển-khai-nhanh-nhiều-bot"><strong>Mẫu cấu hình cho triển khai nhanh nhiều bot</strong></a></li>
+        <li><a href="#khả-năng-đa-phương-thức-nâng-cao"><strong>Khả năng đa phương thức nâng cao</strong></a></li>
+        <li><a href="#lớp-dịch-giao-thức"><strong>Lớp dịch giao thức</strong></a></li>
+        <li><a href="#xử-lý-và-chuẩn-hóa-lỗi"><strong>Xử lý và chuẩn hóa lỗi</strong></a></li>
+        <li><a href="#xác-thực-và-bảo-mật-aws"><strong>Xác thực và bảo mật AWS</strong></a></li>
+        <li><a href="#phân-tích-so-sánh"><strong>Phân tích so sánh</strong></a></li>
+        <li><a href="#hiệu-suất-và-tác-động-kinh-doanh"><strong>Hiệu suất và tác động kinh doanh</strong></a></li>
+        <li><a href="#framework-wrapper-api-đã-mang-lại-tác-động-kinh-doanh-rõ-rệt-và-có-thể-đo-lường-được-trên-nhiều-khía-cạnh-bao-gồm-tăng-tính-đa-dạng-mô-hình-nâng-cao-hiệu-quả-triển-khai-và-cải-thiện-năng-suất-của-nhà-phát-triển">Framework wrapper API đã mang lại tác động kinh doanh rõ rệt và có thể đo lường được trên nhiều khía cạnh, bao gồm tăng tính đa dạng mô hình, nâng cao hiệu quả triển khai, và cải thiện năng suất của nhà phát triển.</a></li>
+        <li><a href="#cân-nhắc-về-khả-năng-mở-rộng-và-hiệu-năng"><strong>Cân nhắc về khả năng mở rộng và hiệu năng</strong></a></li>
+        <li><a href="#wrapper-api-được-thiết-kế-để-xử-lý-các-khối-lượng-công-việc-lớn-trong-môi-trường-sản-xuất-high-volume-production-workloads-với-khả-năng-mở-rộng-mạnh-mẽ-robust-scaling-capabilities">Wrapper API được thiết kế để xử lý các khối lượng công việc lớn trong môi trường sản xuất (high-volume production workloads) với khả năng mở rộng mạnh mẽ (robust scaling capabilities).</a></li>
+        <li><a href="#xử-lý-bất-đồng-bộ"><strong>Xử lý bất đồng bộ</strong></a></li>
+        <li><a href="#khôi-phục-lỗi-và-logic-thử-lại"><strong>Khôi phục lỗi và logic thử lại</strong></a></li>
+        <li><a href="#hệ-thống-triển-khai-cơ-chế-khôi-phục-lỗi-error-recovery-và-logic-thử-lại-thông-minh-retry-logic-nhằm-xử-lý-các-sự-cố-tạm-thời-transient-issues-một-cách-hiệu-quả-và-tự-động">Hệ thống triển khai cơ chế khôi phục lỗi (error recovery) và logic thử lại thông minh (retry logic) nhằm xử lý các sự cố tạm thời (transient issues) một cách hiệu quả và tự động:</a></li>
+        <li><a href="#chỉ-số-hiệu-năng"><strong>Chỉ số hiệu năng</strong></a></li>
+        <li><a href="#hệ-thống-thu-thập-các-chỉ-số-hiệu-năng-chi-tiết-detailed-performance-metrics-nhằm-xác-định-các-điểm-nghẽn-bottlenecks-và-tối-ưu-hóa-hiệu-suất-hoạt-động-tổng-thể-optimize-performance">Hệ thống thu thập các chỉ số hiệu năng chi tiết (detailed performance metrics) nhằm xác định các điểm nghẽn (bottlenecks) và tối ưu hóa hiệu suất hoạt động tổng thể (optimize performance):</a></li>
+        <li><a href="#các-yếu-tố-bảo-mật"><strong>Các yếu tố bảo mật</strong></a></li>
+        <li><a href="#bảo-mật-là-một-khía-cạnh-then-chốt-trong-việc-triển-khai-wrapper-api-với-nhiều-tính-năng-quan-trọng-được-thiết-kế-để-đảm-bảo-hoạt-động-an-toàn-của-hệ-thống">Bảo mật là một khía cạnh then chốt trong việc triển khai wrapper API, với nhiều tính năng quan trọng được thiết kế để đảm bảo hoạt động an toàn của hệ thống.</a></li>
+        <li><a href="#xác-thực-jwt-kết-hợp-chữ-ký-aws-sigv4"><strong>Xác thực JWT kết hợp chữ ký AWS SigV4</strong></a></li>
+        <li><a href="#quản-lý-bí-mật"><strong>Quản lý bí mật</strong></a></li>
+        <li><a href="#quản-lý-kết-nối-an-toàn"><strong>Quản lý kết nối an toàn</strong></a></li>
+        <li><a href="#khắc-phục-sự-cố-và-gỡ-lỗi"><strong>Khắc phục sự cố và gỡ lỗi</strong></a></li>
+        <li><a href="#bài-học-kinh-nghiệm-và-thực-tiễn-tốt-nhất"><strong>Bài học kinh nghiệm và thực tiễn tốt nhất</strong></a></li>
+        <li><a href="#kết-luận"><strong>Kết luận</strong></a></li>
+        <li><a href="#để-tìm-hiểu-thêm-về-việc-triển-khai-các-giải-pháp-tương-tự-bạn-có-thể-tham-khảo">Để tìm hiểu thêm về việc triển khai các giải pháp tương tự, bạn có thể tham khảo:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lớp truy cập hợp nhất đa phương thức cho Poe của Quora sử dụng Amazon Bedrock
+            </h1>
+          
+
+        
+
+
+
+	<p>Tác giả: Gilbert V. Lepadatu và Nick Huber | Ngày đăng: 16/09/2025 | Danh mục: <a href="https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-machine-learning/amazon-bedrock/">Amazon Bedrock</a>, <a href="https://aws.amazon.com/blogs/machine-learning/category/post-types/customer-solutions/">Customer Solutions</a>, <a href="https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/generative-ai/foundation-models/">Foundation models</a>, <a href="https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/generative-ai/">Generative AI</a></p>
+<p>Các tổ chức đang tìm kiếm lợi thế cạnh tranh bằng cách triển khai và tích hợp nhanh chóng các mô hình trí tuệ nhân tạo sinh (Generative AI) thông qua kiến trúc Generative AI Gateway. Cách tiếp cận với giao diện hợp nhất này giúp đơn giản hóa việc truy cập vào nhiều mô hình nền tảng (foundation models – FMs), giải quyết một thách thức quan trọng: sự bùng nổ của các mô hình AI chuyên biệt, mỗi mô hình có khả năng, API và yêu cầu vận hành riêng biệt. Thay vì phải xây dựng và duy trì nhiều điểm tích hợp riêng lẻ cho từng mô hình, giải pháp thông minh là tạo ra một lớp trừu tượng (abstraction layer) để chuẩn hóa các khác biệt này đằng sau một API thống nhất và nhất quán.</p>
+<p>Trung tâm Đổi mới Generative AI của AWS (AWS Generative AI Innovation Center) và Quora gần đây đã hợp tác để phát triển một giải pháp sáng tạo nhằm giải quyết chính thách thức này. Hai bên đã xây dựng một khung API bao bọc hợp nhất (unified wrapper API framework) giúp tăng tốc triển khai các mô hình nền tảng của Amazon Bedrock trên hệ thống Poe của Quora. Kiến trúc này mang lại khả năng “xây dựng một lần, triển khai nhiều mô hình” (build once, deploy multiple models), giúp rút ngắn đáng kể thời gian triển khai và công sức kỹ thuật, với mã cầu nối giao thức thực tế được thể hiện xuyên suốt trong mã nguồn.</p>
+<p>Đối với các nhà lãnh đạo công nghệ và nhà phát triển đang làm việc với triển khai nhiều mô hình AI ở quy mô lớn, khung này minh chứng cho cách thiết kế trừu tượng thông minh và dịch giao thức (protocol translation) có thể tăng tốc chu kỳ đổi mới trong khi vẫn duy trì kiểm soát vận hành.</p>
+<p>Trong bài viết này, chúng tôi sẽ trình bày chi tiết về cách AWS Generative AI Innovation Center và Quora hợp tác để xây dựng một khung API bao bọc hợp nhất, giúp tăng tốc đáng kể việc triển khai các mô hình nền tảng của Amazon Bedrock trên hệ thống Poe. Chúng tôi cũng sẽ phân tích kiến trúc kỹ thuật giúp kết nối giao thức ServerSentEvents theo hướng sự kiện của Poe với API REST của Amazon Bedrock, trình bày cách hệ thống cấu hình theo mẫu (template-based) giúp rút ngắn thời gian triển khai từ vài ngày xuống còn 15 phút, và chia sẻ các mẫu triển khai cho việc dịch giao thức, xử lý lỗi và hỗ trợ đa phương thức. Cách tiếp cận “xây dựng một lần, triển khai nhiều mô hình” này đã giúp Poe tích hợp hơn 30 mô hình Amazon Bedrock bao gồm văn bản, hình ảnh và video, đồng thời giảm tới 95% lượng thay đổi mã nguồn cần thiết.</p>
+<h3 id="quora-và-amazon-bedrock"><strong>Quora và Amazon Bedrock</strong></h3>
+<p><a href="http://poe.com/">Poe.com</a> là một hệ thống trí tuệ nhân tạo (AI) do Quora phát triển, cho phép người dùng và các nhà phát triển tương tác với một loạt các mô hình AI và trợ lý tiên tiến đến từ nhiều nhà cung cấp khác nhau. Hệ thống này hỗ trợ truy cập đa mô hình (multi-model access), cho phép người dùng trò chuyện song song với nhiều chatbot AI, phục vụ cho các tác vụ như hiểu ngôn ngữ tự nhiên, tạo nội dung, tạo hình ảnh, và nhiều ứng dụng khác.</p>
+<p>Ảnh chụp màn hình dưới đây minh họa giao diện người dùng (UI) của Poe, nền tảng AI được Quora phát triển. Hình ảnh thể hiện thư viện phong phú các mô hình AI của Poe, được trình bày dưới dạng các “chatbot” riêng biệt mà người dùng có thể lựa chọn để tương tác.</p>
+<p><img src="../../../3-blogstranslated/3.1-blog1/1.png" alt=""></p>
+<p><em>Hình minh họa 1: Giao diện thư viện mô hình AI của Poe</em></p>
+<p>Ảnh chụp tiếp theo cung cấp cái nhìn về “Model Catalog” trong Amazon Bedrock, một dịch vụ được quản lý toàn phần (fully managed) của Amazon Web Services (AWS).  Danh mục này hoạt động như một trung tâm tập trung, giúp các nhà phát triển khám phá, đánh giá và truy cập các mô hình AI nền tảng (Foundation Models – FMs) tiên tiến đến từ nhiều nhà cung cấp khác nhau.</p>
+<p><img src="../../../3-blogstranslated/3.1-blog1/2.png" alt=""></p>
+<p><em>Hình minh họa 2: Giao diện danh mục mô hình (Model Catalog) trong Amazon Bedrock</em></p>
+<p>Ban đầu, việc tích hợp các mô hình nền tảng đa dạng có sẵn trong Amazon Bedrock đã đặt ra nhiều thách thức kỹ thuật lớn đối với nhóm phát triển của <a href="http://Poe.com">Poe.com</a>. Quá trình này đòi hỏi nguồn lực kỹ thuật đáng kể để thiết lập kết nối với từng mô hình riêng lẻ, đồng thời duy trì hiệu năng và độ tin cậy nhất quán giữa các mô hình. Tính dễ bảo trì (maintainability) cũng nhanh chóng trở thành một yếu tố then chốt, cùng với khả năng tích hợp nhanh các mô hình mới khi chúng được phát hành — hai yếu tố này làm tăng đáng kể độ phức tạp của quá trình tích hợp.</p>
+<h3 id="thách-thức-kỹ-thuật-kết-nối-các-hệ-thống-khác-nhau"><strong>Thách thức kỹ thuật: Kết nối các hệ thống khác nhau</strong></h3>
+<p>Việc tích hợp giữa Poe và Amazon Bedrock đã đặt ra những thách thức kiến trúc cơ bản, đòi hỏi các giải pháp sáng tạo.<br>
+Hai hệ thống này được xây dựng dựa trên triết lý thiết kế và mô hình giao tiếp hoàn toàn khác nhau, tạo nên một khoảng cách kỹ thuật lớn mà API bao bọc (wrapper API) phải đóng vai trò cầu nối để giải quyết.</p>
+<h3 id="sự-khác-biệt-về-kiến-trúc"><strong>Sự khác biệt về kiến trúc</strong></h3>
+<p>Thách thức cốt lõi nằm ở sự khác biệt về kiến trúc giữa hai hệ thống. Việc hiểu rõ những khác biệt này là điều cần thiết để đánh giá mức độ phức tạp của giải pháp tích hợp. Poe vận hành dựa trên kiến trúc hiện đại, phản ứng thời gian thực (reactive architecture), sử dụng giao thức ServerSentEvents (SSE) thông qua thư viện FastAPI (fastapi_poe). Kiến trúc này được tối ưu hóa cho các tương tác thời gian thực (stream-optimized), hoạt động theo mô hình phản hồi dựa trên sự kiện (event-driven response model), được thiết kế để hỗ trợ AI hội thoại liên tục (conversational AI). Amazon Bedrock, ngược lại, hoạt động như một dịch vụ đám mây doanh nghiệp (enterprise cloud service). Nó cung cấp giao diện REST với mẫu truy cập qua AWS SDK, yêu cầu chứng thực SigV4, có phạm vi mô hình giới hạn theo vùng AWS Region, và sử dụng mô hình yêu cầu–phản hồi (request–response) truyền thống, có hỗ trợ streaming. Sự không tương thích giữa các API này tạo ra nhiều thách thức kỹ thuật mà wrapper API của Poe phải xử lý, được tóm tắt trong bảng dưới đây.</p>
+<h4 id="bảng-các-thách-thức-tích-hợp-giữa-poe-và-amazon-bedrock">Bảng: Các thách thức tích hợp giữa Poe và Amazon Bedrock</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Danh mục thách thức</th>
+          <th>Vấn đề kỹ thuật</th>
+          <th>Giao thức nguồn (Source)</th>
+          <th>Giao thức đích (Target)</th>
+          <th>Độ phức tạp tích hợp</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Dịch giao thức (Protocol Translation)</strong></td>
+          <td>Chuyển đổi giữa giao thức dựa trên WebSocket và API REST</td>
+          <td>WebSocket (hai chiều, duy trì kết nối)</td>
+          <td>REST (yêu cầu/đáp ứng, phi trạng thái)</td>
+          <td>Cao – yêu cầu xây dựng cầu nối giao thức</td>
+      </tr>
+      <tr>
+          <td><strong>Liên kết xác thực (Authentication Bridging)</strong></td>
+          <td>Kết nối xác thực JWT với cơ chế ký AWS SigV4</td>
+          <td>Xác thực bằng token JWT</td>
+          <td>Xác thực AWS SigV4</td>
+          <td>Trung bình – cần chuyển đổi thông tin xác thực</td>
+      </tr>
+      <tr>
+          <td><strong>Chuyển đổi định dạng phản hồi (Response Format Transformation)</strong></td>
+          <td>Chuyển đổi dữ liệu JSON sang định dạng yêu cầu</td>
+          <td>JSON tiêu chuẩn</td>
+          <td>Định dạng tùy chỉnh</td>
+          <td>Trung bình – cần ánh xạ cấu trúc dữ liệu</td>
+      </tr>
+      <tr>
+          <td><strong>Đồng bộ hóa luồng dữ liệu (Streaming Reconciliation)</strong></td>
+          <td>Chuyển đổi phản hồi phân mảnh (chunked responses) sang luồng SSE</td>
+          <td>Phản hồi HTTP dạng phân mảnh</td>
+          <td>Luồng ServerSentEvents</td>
+          <td>Cao – yêu cầu chuyển đổi luồng dữ liệu thời gian thực</td>
+      </tr>
+      <tr>
+          <td><strong>Chuẩn hóa tham số (Parameter Standardization)</strong></td>
+          <td>Tạo không gian tham số thống nhất cho nhiều mô hình khác nhau</td>
+          <td>Tham số riêng của từng mô hình</td>
+          <td>Giao diện tham số chuẩn hóa</td>
+          <td>Trung bình – cần chuẩn hóa cấu trúc tham số</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="tiến-hóa-của-api-và-converse-api"><strong>Tiến hóa của API và Converse API</strong></h3>
+<p>Vào tháng 5 năm 2024, Amazon Bedrock giới thiệu Converse API, mang lại nhiều lợi ích về chuẩn hóa, giúp đơn giản hóa đáng kể kiến trúc tích hợp. Các điểm nổi bật của Converse API bao gồm:</p>
+<ul>
+<li>Giao diện thống nhất cho nhiều nhà cung cấp mô hình khác nhau (như Anthropic, Meta, Mistral, v.v.).</li>
+<li>Bộ nhớ hội thoại (conversation memory) với khả năng xử lý lịch sử trò chuyện một cách thống nhất.</li>
+<li>Hỗ trợ cả chế độ streaming và non-streaming trong cùng một mô hình API duy nhất.</li>
+<li>Hỗ trợ đa phương thức (multimodal) cho văn bản, hình ảnh và dữ liệu có cấu trúc.</li>
+<li>Chuẩn hóa tham số (parameter normalization), giảm thiểu sự khác biệt trong cách triển khai của từng mô hình.</li>
+<li>Tích hợp sẵn tính năng kiểm duyệt nội dung (built-in content moderation).</li>
+</ul>
+<p>Giải pháp được trình bày trong bài viết này sử dụng Converse API khi phù hợp, đồng thời duy trì khả năng tương thích với các API riêng biệt của từng mô hình để khai thác các năng lực chuyên biệt. Cách tiếp cận lai (hybrid approach) này mang lại sự linh hoạt cao, đồng thời tận dụng tối đa lợi ích chuẩn hóa của Converse API.</p>
+<h3 id="tổng-quan-giải-pháp"><strong>Tổng quan giải pháp</strong></h3>
+<p>Framework API bao bọc (wrapper API framework) cung cấp một giao diện thống nhất (unified interface) giữa Poe và các mô hình trong Amazon Bedrock.<br>
+Nó hoạt động như một lớp dịch (translation layer) giúp chuẩn hóa các khác biệt giữa các mô hình và giao thức, đồng thời vẫn giữ nguyên các khả năng riêng biệt (unique capabilities) của từng mô hình AI.</p>
+<p>Giải pháp được thiết kế dựa trên kiến trúc mô-đun (modular design), tách biệt rõ các chức năng độc lập (separation of concerns) và cho phép mở rộng linh hoạt (flexible scaling), như được minh họa trong sơ đồ dưới đây.</p>
+<p><img src="../../../3-blogstranslated/3.1-blog1/3.png" alt=""></p>
+<p><em>Hình minh họa 3: Kiến trúc tổng thể của framework Wrapper API giữa Poe và Amazon Bedrock</em></p>
+<p>Giải pháp wrapper API bao gồm nhiều thành phần chính, hoạt động phối hợp để mang lại trải nghiệm tích hợp liền mạch (seamless integration experience):</p>
+<ul>
+<li>
+<h4 id="client-đây-là-điểm-đầu-vào-entry-point-nơi-người-dùng-tương-tác-với-các-khả-năng-ai-thông-qua-nhiều-giao-diện-khác-nhau-trình-duyệt-web-ứng-dụng-di-động-api"><strong>Client</strong>: Đây là điểm đầu vào (entry point) nơi người dùng tương tác với các khả năng AI thông qua nhiều giao diện khác nhau (trình duyệt web, ứng dụng di động, API…).</h4>
+</li>
+<li>
+<h4 id="lớp-poe-bao-gồm"><strong>Lớp Poe</strong> bao gồm:</h4>
+<ul>
+<li><strong>Poe UI</strong>: Chịu trách nhiệm về trải nghiệm người dùng (user experience), bao gồm việc tạo yêu cầu (request formation), quản lý tham số (parameter control), xử lý tải tệp (file uploads), và hiển thị phản hồi từ AI (response visualization).</li>
+<li><strong>Poe FastAPI</strong>: Chuẩn hóa các tương tác của người dùng, đồng thời quản lý giao tiếp giữa client và các hệ thống nền tảng. Đây là lớp trung gian xử lý giao thức (protocol management layer), giúp duy trì tính nhất quán trong quá trình truyền tải dữ liệu và phản hồi.</li>
+</ul>
+</li>
+<li>
+<p><strong>Bot Factory</strong>: Đây là một cơ chế “nhà máy mô hình” (factory pattern), có nhiệm vụ tạo động (dynamically create) các bộ xử lý mô hình (model handlers) phù hợp với loại mô hình được yêu cầu — ví dụ: chat model (mô hình hội thoại), image model (mô hình tạo hình ảnh), video model (mô hình xử lý video).</p>
+</li>
+</ul>
+<p>Cấu trúc này cho phép hệ thống dễ dàng mở rộng (extensible) để hỗ trợ các loại mô hình mới hoặc biến thể khác nhau của mô hình hiện có trong tương lai. Dưới đây là một đoạn mã minh họa cách hoạt động của Bot Factory, thể hiện cách lựa chọn mô hình phù hợp dựa trên loại yêu cầu của người dùng:</p>
+<pre><code>#From core/bot_factory.py - Actual implementation
+class BotFactory:
+    &quot;&quot;&quot;
+    Factory for creating different types of bots.
+    Handles bot creation based on the bot type and configuration.
+    &quot;&quot;&quot;
+    @staticmethod
+    def create_bot(bot_config: BotConfig) -&gt; PoeBot:
+        # Check if a custom bot class is specified
+        if hasattr(bot_config, 'bot_class') and bot_config.bot_class:
+            # Use the custom bot class directly
+            bot = bot_config.bot_class(bot_config)
+            
+            # Explicitly ensure we're returning a PoeBot
+            if not isinstance(bot, PoeBot):
+                raise TypeError(f&quot;Custom bot class must return a PoeBot instance, got {type(bot)}&quot;)
+            return bot
+
+        # Determine bot type based on configuration
+        if hasattr(bot_config, 'enable_video_generation') and bot_config.enable_video_generation:
+            # Video generation bot
+            if 'luma' in bot_config.bot_name:
+                from core.refactored_luma_bot import LumaVideoBot
+                return LumaVideoBot(bot_config)
+            else:
+                from core.refactored_nova_reel_bot import NovaReelVideoBot
+                return NovaReelVideoBot(bot_config)
+                
+        elif hasattr(bot_config, 'enable_image_generation') and bot_config.enable_image_generation:
+            # Image generation bot
+            if hasattr(bot_config, 'model_id') and &quot;stability&quot; in bot_config.model_id.lower():
+                # Stability AI image generation bot
+                from core.refactored_image_stability_ai import AmazonBedrockImageStabilityAIBot
+                return AmazonBedrockImageStabilityAIBot(bot_config)
+            else:
+                # Other image generation bot (Titan, Canvas, etc.)
+                from core.refactored_image_bot_amazon import RefactoredAmazonImageGenerationBot
+                return RefactoredAmazonImageGenerationBot(bot_config)
+                
+        else:
+            # Check if this is a Claude 3.7 model
+            if hasattr(bot_config, 'model_id') and &quot;claude-3-7&quot; in bot_config.model_id.lower():
+                return ClaudePlusBot(bot_config)
+            else:
+                # Default to standard chat bot
+                return RefactoredAmazonBedrockPoeBot(bot_config)
+</code></pre>
+<ul>
+<li><strong>Service manager:</strong> Điều phối các dịch vụ cần thiết để xử lý yêu cầu một cách hiệu quả. Nó phối hợp giữa các dịch vụ chuyên biệt, bao gồm:
+<ul>
+<li><strong>Token services</strong> – Quản lý giới hạn token và theo dõi số lượng token sử dụng.</li>
+<li><strong>Streaming services</strong> – Xử lý phản hồi thời gian thực.</li>
+<li><strong>Error services</strong> – Chuẩn hóa và xử lý lỗi.</li>
+<li><strong>AWS service integration</strong> – Quản lý các cuộc gọi API đến Amazon Bedrock.</li>
+</ul>
+</li>
+<li><strong>AWS services component</strong> – Chuyển đổi phản hồi từ định dạng của Amazon Bedrock sang định dạng mà Poe mong đợi và ngược lại; xử lý các gói dữ liệu dạng streaming, hình ảnh và video.</li>
+<li><strong>Amazon Bedrock layer</strong> – Lớp dịch vụ mô hình nền tảng (FM) của Amazon, cung cấp khả năng xử lý AI thực tế và lưu trữ mô hình, bao gồm:
+<ul>
+<li><strong>Model diversity</strong> – Cung cấp quyền truy cập hơn 30 mô hình văn bản (như Amazon Titan, Amazon Nova, Claude của Anthropic, Llama của Meta, Mistral, v.v.), cũng như các mô hình hình ảnh và video.</li>
+<li><strong>API structure</strong> – Hỗ trợ cả API riêng của từng mô hình và API hợp nhất Converse.</li>
+<li><strong>Authentication</strong> – Yêu cầu xác thực AWS SigV4 để đảm bảo truy cập an toàn đến các điểm cuối của mô hình.</li>
+<li><strong>Response management</strong> – Trả về kết quả mô hình kèm theo siêu dữ liệu và thống kê mức sử dụng được chuẩn hóa.</li>
+</ul>
+</li>
+</ul>
+<p>Luồng xử lý yêu cầu (Request processing flow) trong API hợp nhất này minh họa quá trình điều phối phức tạp khi kết nối giao thức ServerSentEvents (hướng sự kiện) của Poe với API REST của Amazon Bedrock, cho thấy nhiều dịch vụ chuyên biệt phối hợp nhịp nhàng để mang lại trải nghiệm người dùng liền mạch.</p>
+<p>Quy trình bắt đầu khi client gửi yêu cầu thông qua giao diện Poe, sau đó yêu cầu được chuyển đến thành phần Bot Factory. Mẫu thiết kế <em>factory pattern</em> này tạo động (dynamically) trình xử lý mô hình phù hợp dựa trên loại mô hình được yêu cầu — có thể là chat, image, hoặc video generation. Tiếp đó, Service Manager sẽ điều phối các dịch vụ chuyên biệt cần thiết để xử lý yêu cầu một cách hiệu quả, bao gồm quản lý token, xử lý streaming và quản lý lỗi.</p>
+<p>Sơ đồ tuần tự dưới đây thể hiện toàn bộ luồng xử lý yêu cầu</p>
+<p><img src="../../../3-blogstranslated/3.1-blog1/4.png" alt=""></p>
+<h3 id="mẫu-cấu-hình-cho-triển-khai-nhanh-nhiều-bot"><strong>Mẫu cấu hình cho triển khai nhanh nhiều bot</strong></h3>
+<p>Điểm mạnh nhất của wrapper API nằm ở hệ thống mẫu cấu hình hợp nhất (unified configuration template system), cho phép triển khai và quản lý nhiều bot nhanh chóng với rất ít thay đổi trong mã nguồn. Cách tiếp cận này là trọng tâm trong thành công của giải pháp khi giúp rút ngắn đáng kể thời gian triển khai.</p>
+<p>Hệ thống này sử dụng phương pháp cấu hình dựa trên mẫu (template-based configuration approach), trong đó kết hợp giữa các giá trị mặc định dùng chung (shared defaults) và các giá trị ghi đè riêng cho từng mô hình (model-specific overrides).</p>
+<pre><code># Bot configurations using the template pattern
+
+CHAT_BOTS = {
+    'poe-nova-micro': BotConfig(
+        # Identity
+        bot_name='poe-nova-micro',
+        model_id='amazon.nova-micro-v1:0',
+        aws_region=aws_config['region'],
+        poe_access_key='XXXXXXXXXXXXXXXXXXXXXX',
+
+        # Model-specific parameters
+        supports_system_messages=True,
+        enable_image_comprehension=True,
+        expand_text_attachments=True,
+        streaming=True,
+        max_tokens=1300,
+        temperature=0.7,
+        top_p=0.9,
+
+        # Model-specific pricing
+        enable_monetization=True,
+        pricing_type=&quot;variable&quot;,
+        input_token_cost_milli_cents=2,
+        output_token_cost_milli_cents=4,
+        image_analysis_cost_milli_cents=25,
+
+        # Generate rate card with model-specific values
+        custom_rate_card=create_rate_card(2, 4, 25),
+
+        # Include common parameters
+        **DEFAULT_CHAT_CONFIG
+    ),
+
+    'poe-mistral-pixtral': BotConfig(
+        # Identity
+        bot_name='poe-mistral-pixtral',
+        model_id='us.mistral.pixtral-large-2502-v1:0',
+        aws_region=aws_config['region'],
+        poe_access_key='XXXXXXXXXXXXXXXXXXXXXX',
+
+        # Model-specific parameters
+        supports_system_messages=False,
+        enable_image_comprehension=False,
+        # ...
+        # Include common parameters
+        **DEFAULT_CHAT_CONFIG
+    )
+}
+</code></pre>
+<p>Kiến trúc dựa trên cấu hình này mang lại nhiều lợi ích đáng kể, bao gồm:</p>
+<ul>
+<li><strong>Triển khai nhanh</strong> – Việc thêm mô hình mới chỉ cần tạo một mục cấu hình mới thay vì phải viết lại mã tích hợp. Đây là yếu tố then chốt giúp cải thiện đáng kể thời gian triển khai.</li>
+<li><strong>Quản lý tham số nhất quán</strong> – Các tham số dùng chung được định nghĩa một lần trong DEFAULT_CHAT_CONFIG và kế thừa tự động bởi các bot, đảm bảo tính nhất quán và giảm trùng lặp cấu hình.</li>
+<li><strong>Tùy chỉnh theo mô hình</strong> – Mỗi mô hình có thể có thiết lập riêng biệt, nhưng vẫn hưởng lợi từ hạ tầng cấu hình chung.</li>
+<li><strong>Linh hoạt trong vận hành</strong>  – Các tham số có thể được điều chỉnh mà không cần thay đổi mã nguồn, giúp thử nghiệm và tối ưu hóa nhanh chóng.</li>
+<li><strong>Quản lý thông tin xác thực tập trung</strong> – Thông tin xác thực AWS được quản lý tập trung tại một nơi duy nhất, giúp tăng cường bảo mật và đơn giản hóa việc cập nhật.</li>
+<li><strong>Triển khai theo vùng</strong> – Các mô hình có thể được triển khai linh hoạt đến nhiều vùng AWS khác nhau, với các thiết lập vùng (Region settings) được kiểm soát trực tiếp tại cấp cấu hình.</li>
+</ul>
+<p>Lớp BotConfig cung cấp một cách có cấu trúc (structured way) để định nghĩa cấu hình cho các bot, đồng thời hỗ trợ xác thực kiểu dữ liệu (type validation) trong quá trình triển khai:</p>
+<pre><code># From config/bot_config.py - Actual implementation (partial)
+class BotConfig(BaseModel):
+    # Core Bot Identity
+    bot_name: str = Field(..., description=&quot;Name of the bot&quot;)
+    model_id: str = Field(..., description=&quot;Identifier for the AI model&quot;)
+
+    # AWS Configuration
+    aws_region: Optional[str] = Field(default=&quot;us-east-1&quot;, description=&quot;AWS region for deployment&quot;)
+    aws_access_key: Optional[str] = Field(default=None, description=&quot;AWS access key&quot;)
+    aws_secret_key: Optional[str] = Field(default=None, description=&quot;AWS secret key&quot;)
+    aws_security_token: Optional[str] = None
+
+    # Poe Configuration
+    poe_access_key: str = Field(..., description=&quot;Poe access key&quot;)
+    modal_app_name: str = Field(..., description=&quot;Modal app name&quot;)
+
+    # Capability Flags
+    allow_attachments: bool = Field(default=True, description=&quot;Whether to allow file attachments in Poe&quot;)
+    supports_system_messages: bool = Field(default=False)
+    enable_image_comprehension: bool = Field(default=False)
+    expand_text_attachments: bool = Field(default=False)
+    streaming: bool = Field(default=False)
+    enable_image_generation: bool = Field(default=False)
+    enable_video_generation: bool = Field(default=False)
+
+    # Inference Configuration
+    max_tokens: Optional[int] = Field(default=None, description=&quot;Maximum number of tokens to generate&quot;)
+    temperature: Optional[float] = Field(default=None, description=&quot;Temperature for sampling&quot;)
+    top_p: Optional[float] = Field(default=None, description=&quot;Top-p sampling parameter&quot;)
+    optimize_latency: bool = Field(default=False, description=&quot;Enable latency optimization with performanceConfig&quot;)
+
+    # Reasoning Configuration (Claude 3.7+)
+    enable_reasoning: bool = Field(default=False, description=&quot;Enable Claude's reasoning capability&quot;)
+    reasoning_budget: Optional[int] = Field(default=1024, description=&quot;Token budget for reasoning (1024-4000 recommended)&quot;)
+
+    # Monetization Configuration
+    enable_monetization: bool = Field(default=False, description=&quot;Enable variable pricing monetization&quot;)
+    custom_rate_card: Optional[str] = Field(
+        default=None,
+        description=&quot;Custom rate card for variable pricing in markdown format&quot;
+    )
+    input_token_cost_milli_cents: Optional[int] = Field(
+        default=None,
+        description=&quot;Cost per input token in thousandths of a cent&quot;
+    )
+    output_token_cost_milli_cents: Optional[int] = Field(
+        default=None,
+        description=&quot;Cost per output token in thousandths of a cent&quot;
+    )
+    image_analysis_cost_milli_cents: Optional[int] = Field(
+        default=None,
+        description=&quot;Cost per image analysis in thousandths of a cent&quot;
+    )
+</code></pre>
+<h3 id="khả-năng-đa-phương-thức-nâng-cao"><strong>Khả năng đa phương thức nâng cao</strong></h3>
+<p>Một trong những điểm mạnh nhất của framework này là cách nó xử lý khả năng đa phương thức (multimodal) thông qua các cờ cấu hình đơn giản (simple configuration flags):</p>
+<ul>
+<li><strong>enable_image_comprehension</strong> – Khi được đặt thành True đối với các mô hình chỉ xử lý văn bản (text-only) như Amazon Nova Micro, Poe tự sử dụng khả năng thị giác (vision capabilities) của mình để phân tích hình ảnh và chuyển đổi chúng thành mô tả văn bản, sau đó gửi các mô tả này đến mô hình của Amazon Bedrock.<br>
+Cơ chế này giúp ngay cả các mô hình chỉ-văn-bản cũng có thể phân loại hình ảnh mà không cần khả năng nhìn tích hợp sẵn.</li>
+<li><strong>expand_text_attachments</strong> – Khi được bật (True), Poe sẽ phân tích các tệp văn bản được tải lên và đưa nội dung của chúng vào hội thoại, cho phép mô hình làm việc trực tiếp với nội dung tài liệu mà không cần cơ chế xử lý tệp đặc biệt.</li>
+<li><strong>supports_system_messages</strong> – Tham số này kiểm soát việc mô hình có thể chấp nhận các thông điệp hệ thống (system prompts) hay không, giúp duy trì hành vi thống nhất giữa các mô hình có khả năng khác nhau.</li>
+</ul>
+<p>Các cờ cấu hình này tạo nên một lớp trừu tượng mạnh mẽ (powerful abstraction layer), mang lại những lợi ích nổi bật sau:</p>
+<ul>
+<li><strong>Extends model capabilities</strong> – Các mô hình chỉ-văn-bản có thể mô phỏng khả năng đa phương thức (pseudo-multimodal) nhờ bước xử lý trước (preprocessing) của Poe.</li>
+<li><strong>Optimizes built-in features</strong> – Các mô hình đa phương thức thực sự có thể tận dụng toàn bộ khả năng tích hợp sẵn để đạt hiệu quả tối ưu nhất.</li>
+<li><strong>Simplifies integration</strong> – Quá trình tích hợp trở nên đơn giản, chỉ cần bật hoặc tắt các tùy chọn cấu hình, không cần thay đổi mã nguồn.</li>
+<li><strong>Maintains consistency</strong> – Đảm bảo trải nghiệm người dùng nhất quán, bất kể khả năng gốc của mô hình là gì.</li>
+</ul>
+<p>Tiếp theo, chúng ta sẽ đi sâu vào triển khai kỹ thuật của giải pháp (technical implementation) để hiểu chi tiết hơn về cách thức hoạt động.</p>
+<h3 id="lớp-dịch-giao-thức"><strong>Lớp dịch giao thức</strong></h3>
+<p>Khía cạnh thách thức kỹ thuật lớn nhất của giải pháp này nằm ở việc kết nối giữa các giao thức API của Poe và các giao diện mô hình đa dạng của Amazon Bedrock. Nhóm phát triển đã giải quyết vấn đề này bằng cách xây dựng một lớp dịch giao thức tinh vi (sophisticated protocol translation layer), cho phép các hệ thống hoạt động hài hòa dù được thiết kế theo những triết lý hoàn toàn khác nhau:</p>
+<pre><code># From services/streaming_service.py - Actual implementation
+def _extract_content_from_event(self, event: Dict[str, Any]) -&gt; Optional[str]:
+    &quot;&quot;&quot;Extract content from a streaming event based on model provider.&quot;&quot;&quot;
+    try:
+        # Handle Anthropic Claude models
+        if &quot;message&quot; in event:
+            message = event.get(&quot;message&quot;, {})
+            if &quot;content&quot; in message and isinstance(message[&quot;content&quot;], list):
+                for content_item in message[&quot;content&quot;]:
+                    if content_item.get(&quot;type&quot;) == &quot;text&quot;:
+                        return content_item.get(&quot;text&quot;, &quot;&quot;)
+            elif &quot;content&quot; in message:
+                return str(message.get(&quot;content&quot;, &quot;&quot;))
+
+        # Handle Amazon Titan models
+        if &quot;delta&quot; in event:
+            delta = event.get(&quot;delta&quot;, {})
+            if &quot;text&quot; in delta:
+                return delta.get(&quot;text&quot;, &quot;&quot;)
+
+        # Handle other model formats
+        if &quot;chunk&quot; in event:
+            chunk_data = event.get(&quot;chunk&quot;, {})
+            if &quot;bytes&quot; in chunk_data:
+                # Process binary data if present
+                try:
+                    text = chunk_data[&quot;bytes&quot;].decode(&quot;utf-8&quot;)
+                    return json.loads(text).get(&quot;completion&quot;, &quot;&quot;)
+                except Exception:
+                    self.logger.warning(&quot;Failed to decode bytes in chunk&quot;)
+
+        # No matching format found
+        return None
+</code></pre>
+<p>Lớp dịch giao thức này (translation layer) xử lý những khác biệt tinh vi giữa các mô hình, đảm bảo rằng bất kể mô hình Amazon Bedrock nào được sử dụng, phản hồi gửi về cho Poe luôn thống nhất và tuân theo định dạng mà Poe mong đợi.</p>
+<h3 id="xử-lý-và-chuẩn-hóa-lỗi"><strong>Xử lý và chuẩn hóa lỗi</strong></h3>
+<p>Một khía cạnh then chốt của việc triển khai là xử lý lỗi và chuẩn hóa lỗi toàn diện (comprehensive error handling and normalization). Thành phần ErrorService chịu trách nhiệm đảm bảo quá trình xử lý lỗi diễn ra nhất quán trên tất cả các mô hình khác nhau, giúp hệ thống duy trì tính ổn định và dễ bảo trì trong môi trường đa mô hình:</p>
+<pre><code># Simplified example of error handling (not actual code)
+class ErrorService:
+    def normalize_Amazon_Bedrock_error(self, error: Exception) -&gt; str:
+        &quot;&quot;&quot;Normalize Amazon Bedrock errors into a consistent format.&quot;&quot;&quot;
+        if isinstance(error, ClientError):
+            if &quot;ThrottlingException&quot; in str(error):
+                return &quot;The model is currently experiencing high demand. Please try again in a moment.&quot;
+            elif &quot;ValidationException&quot; in str(error):
+                return &quot;There was an issue with the request parameters. Please try again with different settings.&quot;
+            elif &quot;AccessDeniedException&quot; in str(error):
+                return &quot;Access to this model is restricted. Please check your permissions.&quot;
+            else:
+                return f&quot;An error occurred while communicating with the model: {str(error)}&quot;
+        elif isinstance(error, ConnectionError):
+            return &quot;Connection error. Please check your network and try again.&quot;
+        else:
+            return f&quot;An unexpected error occurred: {str(error)}&quot;
+
+Cách tiếp cận này đảm bảo rằng người dùng luôn nhận được các thông báo lỗi có ý nghĩa (meaningful error messages), bất kể mô hình nền tảng hay tình huống lỗi cụ thể đang xảy ra.
+</code></pre>
+<p><strong>Đếm và tối ưu hóa token</strong></p>
+<p>Hệ thống triển khai cơ chế đếm và tối ưu hóa token tiên tiến (sophisticated token counting and optimization) nhằm tối đa hóa hiệu quả sử dụng các mô hình AI:</p>
+<pre><code># From services/streaming_service.py - Actual implementation (partial)
+# Calculate approximate JSON overhead
+user_message_tokens = 0
+for msg in conversation['messages']:
+    for content_block in msg.get('content', []):
+        if 'text' in content_block:
+            # Simple word-based estimation of actual text content
+            user_message_tokens += len(content_block['text'].split())
+
+# Estimate JSON structure overhead (difference between total and content)
+json_overhead = int((input_tokens - system_tokens) - user_message_tokens)
+
+# Ensure we're working with integers for calculations
+input_tokens_for_pct = int(input_tokens)
+system_tokens_for_pct = int(system_tokens)
+json_overhead_for_pct = int(json_overhead)
+
+# Calculate percentage with float arithmetic and proper integer division
+json_overhead_percent = (float(json_overhead_for_pct) / max(1, input_tokens_for_pct - system_tokens_for_pct)) * 100
+...
+</code></pre>
+<p>Việc theo dõi chi tiết token này cho phép ước tính chi phí và tối ưu hóa chính xác, giúp sử dụng tài nguyên mô hình hiệu quả hơn.</p>
+<h3 id="xác-thực-và-bảo-mật-aws"><strong>Xác thực và bảo mật AWS</strong></h3>
+<p>Thành phần AwsClientService chịu trách nhiệm xác thực và bảo mật cho các lệnh gọi API của Amazon Bedrock. Triển khai này đảm bảo xác thực an toàn với các dịch vụ AWS, đồng thời xử lý lỗi và quản lý kết nối một cách đúng chuẩn và nhất quán.</p>
+<h3 id="phân-tích-so-sánh"><strong>Phân tích so sánh</strong></h3>
+<p>Việc triển khai wrapper API đã cải thiện đáng kể hiệu suất và khả năng triển khai các mô hình Amazon Bedrock trên Poe, như được thể hiện trong bảng sau:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Before (Direct API)</th>
+          <th>After (Wrapper API)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Deployment Time</strong></td>
+          <td>Days per model</td>
+          <td>Minutes per model</td>
+      </tr>
+      <tr>
+          <td><strong>Developer Focus</strong></td>
+          <td>Configuration and plumbing</td>
+          <td>Innovation and features</td>
+      </tr>
+      <tr>
+          <td><strong>Model Diversity</strong></td>
+          <td>Limited by integration capacity</td>
+          <td>Extensive (across Amazon Bedrock models)</td>
+      </tr>
+      <tr>
+          <td><strong>Maintenance Overhead</strong></td>
+          <td>High (separate code for each model)</td>
+          <td>Low (configuration-based)</td>
+      </tr>
+      <tr>
+          <td><strong>Error Handling</strong></td>
+          <td>Custom per model</td>
+          <td>Standardized across models</td>
+      </tr>
+      <tr>
+          <td><strong>Cost Tracking</strong></td>
+          <td>Complex (multiple integrations)</td>
+          <td>Simplified (centralized)</td>
+      </tr>
+      <tr>
+          <td><strong>Multimodal Support</strong></td>
+          <td>Fragmented</td>
+          <td>Unified</td>
+      </tr>
+      <tr>
+          <td><strong>Security</strong></td>
+          <td>Varied implementations</td>
+          <td>Consistent best practices</td>
+      </tr>
+  </tbody>
+</table>
+<p>Bảng so sánh này làm nổi bật những cải tiến đáng kể đạt được thông qua cách tiếp cận wrapper API, minh chứng cho giá trị của việc đầu tư vào một lớp trừu tượng mạnh mẽ (robust abstraction layer).</p>
+<h3 id="hiệu-suất-và-tác-động-kinh-doanh"><strong>Hiệu suất và tác động kinh doanh</strong></h3>
+<h3 id="framework-wrapper-api-đã-mang-lại-tác-động-kinh-doanh-rõ-rệt-và-có-thể-đo-lường-được-trên-nhiều-khía-cạnh-bao-gồm-tăng-tính-đa-dạng-mô-hình-nâng-cao-hiệu-quả-triển-khai-và-cải-thiện-năng-suất-của-nhà-phát-triển">Framework wrapper API đã mang lại tác động kinh doanh rõ rệt và có thể đo lường được trên nhiều khía cạnh, bao gồm tăng tính đa dạng mô hình, nâng cao hiệu quả triển khai, và cải thiện năng suất của nhà phát triển.</h3>
+<p>Poe hiện có thể mở rộng nhanh chóng danh mục mô hình của mình, tích hợp hàng chục mô hình Amazon Bedrock trên các loại dữ liệu văn bản, hình ảnh và video. Việc mở rộng này diễn ra trong vài tuần thay vì vài tháng như trước đây.</p>
+<p>Bảng dưới đây tóm tắt các chỉ số hiệu quả triển khai (deployment efficiency metrics):</p>
+<table>
+  <thead>
+      <tr>
+          <th>Chỉ số</th>
+          <th>Trước</th>
+          <th>Sau</th>
+          <th>Cải thiện</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Triển khai mô hình mới</strong></td>
+          <td>2–3 ngày</td>
+          <td>15 phút</td>
+          <td>Nhanh hơn 96 lần</td>
+      </tr>
+      <tr>
+          <td><strong>Số dòng mã cần thay đổi</strong></td>
+          <td>Hơn 500 dòng</td>
+          <td>20–30 dòng</td>
+          <td>Giảm 95%</td>
+      </tr>
+      <tr>
+          <td><strong>Thời gian thử nghiệm</strong></td>
+          <td>8–12 giờ</td>
+          <td>30–60 phút</td>
+          <td>Giảm 87%</td>
+      </tr>
+      <tr>
+          <td><strong>Các bước triển khai</strong></td>
+          <td>10–15 bước</td>
+          <td>3–5 bước</td>
+          <td>Giảm 75%</td>
+      </tr>
+  </tbody>
+</table>
+<p>Các chỉ số này được đo lường thông qua so sánh trực tiếp số giờ kỹ sư thực hiện trước và sau khi triển khai, theo dõi các lần triển khai thực tế của các mô hình mới.</p>
+<p>Nhóm kỹ sư cũng ghi nhận sự thay đổi rõ rệt trong phân bổ thời gian công việc, chuyển trọng tâm từ tích hợp API sang phát triển tính năng, như thể hiện trong bảng dưới đây:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Hoạt động</th>
+          <th>Trước (% thời gian)</th>
+          <th>Sau (% thời gian)</th>
+          <th>Thay đổi</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Tích hợp API</td>
+          <td>65%</td>
+          <td>15%</td>
+          <td>-50%</td>
+      </tr>
+      <tr>
+          <td>Phát triển tính năng</td>
+          <td>20%</td>
+          <td>60%</td>
+          <td>+40%</td>
+      </tr>
+      <tr>
+          <td>Thử nghiệm</td>
+          <td>10%</td>
+          <td>15%</td>
+          <td>+5%</td>
+      </tr>
+      <tr>
+          <td>Tài liệu</td>
+          <td>5%</td>
+          <td>10%</td>
+          <td>+5%</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="cân-nhắc-về-khả-năng-mở-rộng-và-hiệu-năng"><strong>Cân nhắc về khả năng mở rộng và hiệu năng</strong></h3>
+<h3 id="wrapper-api-được-thiết-kế-để-xử-lý-các-khối-lượng-công-việc-lớn-trong-môi-trường-sản-xuất-high-volume-production-workloads-với-khả-năng-mở-rộng-mạnh-mẽ-robust-scaling-capabilities">Wrapper API được thiết kế để xử lý các khối lượng công việc lớn trong môi trường sản xuất (high-volume production workloads) với khả năng mở rộng mạnh mẽ (robust scaling capabilities).</h3>
+<p><strong>Connection pooling</strong></p>
+<p>Để xử lý hiệu quả nhiều yêu cầu đồng thời (multiple concurrent requests), hệ thống wrapper triển khai cơ chế gom kết nối (connection pooling) bằng cách sử dụng thư viện aiobotocore. Cơ chế này cho phép hệ thống duy trì một nhóm (pool) các kết nối đến Amazon Bedrock, giúp giảm chi phí xử lý khi phải thiết lập kết nối mới cho từng yêu cầu riêng lẻ:</p>
+<pre><code># From services/aws_service.py - Connection management
+async def setup_client(self) -&gt; None:
+    &quot;&quot;&quot;Initialize AWS client with proper configuration.&quot;&quot;&quot;
+    async with self._client_lock:
+        try:
+            # Always clean up existing clients first to avoid stale connections
+            if self.Amazon_Bedrock_client:
+                await self.cleanup()
+
+            # Increase timeout for image generation
+            config = Config(
+                read_timeout=300,  # 5 minutes timeout
+                retries={'max_attempts': 3, 'mode': 'adaptive'},
+                connect_timeout=30  # 30 second connection timeout
+            )
+
+            # Create the Amazon Bedrock client with proper error handling
+            self.Amazon_Bedrock_client = await self.session.create_client(
+                service_name=&quot;Amazon_Bedrock-runtime&quot;,
+                region_name=self.bot_config.aws_region,
+                aws_access_key_id=self.bot_config.aws_access_key,
+                aws_secret_access_key=self.bot_config.aws_secret_key,
+                aws_session_token=self.bot_config.aws_security_token,
+                config=config
+            ).__aenter__()
+        except Exception as e:
+            self.Amazon_Bedrock_client = None
+            raise
+</code></pre>
+<h3 id="xử-lý-bất-đồng-bộ"><strong>Xử lý bất đồng bộ</strong></h3>
+<p>Toàn bộ framework được thiết kế theo cơ chế xử lý bất đồng bộ (asynchronous processing) nhằm xử lý hiệu quả nhiều yêu cầu đồng thời (concurrent requests):</p>
+<pre><code># From core/refactored_chat_bot.py - Asynchronous request handling
+async def get_response(self, query: QueryRequest) -&gt; AsyncIterable[PartialResponse]:
+    try:
+        # Ensure AWS client is set up
+        await aws_service.setup_client()
+
+        # Validate and format the conversation
+        conversation = await conversation_service.validate_conversation(query)
+
+        # Process the request with streaming
+        if self.bot_config.streaming:
+            async for chunk in streaming_service.stream_Amazon_Bedrock_response(conversation, request_id):
+                yield chunk
+        else:
+            # Non-streaming mode
+            response_text, input_tokens, output_tokens = await streaming_service.non_stream_Amazon_Bedrock_response(conversation, request_id)
+            if response_text:
+                yield PartialResponse(text=response_text)
+            else:
+                yield PartialResponse(text=self.bot_config.fallback_response)
+            # Send done event for non-streaming mode
+            yield self.done_event()
+
+    except Exception as e:
+        # Error handling
+        error_message = error_service.log_error(e, request_id, &quot;Error during request processing&quot;)
+        yield PartialResponse(text=error_message)
+        yield self.done_event()
+</code></pre>
+<h3 id="khôi-phục-lỗi-và-logic-thử-lại"><strong>Khôi phục lỗi và logic thử lại</strong></h3>
+<h3 id="hệ-thống-triển-khai-cơ-chế-khôi-phục-lỗi-error-recovery-và-logic-thử-lại-thông-minh-retry-logic-nhằm-xử-lý-các-sự-cố-tạm-thời-transient-issues-một-cách-hiệu-quả-và-tự-động">Hệ thống triển khai cơ chế khôi phục lỗi (error recovery) và logic thử lại thông minh (retry logic) nhằm xử lý các sự cố tạm thời (transient issues) một cách hiệu quả và tự động:</h3>
+<pre><code># From services/streaming_service.py - Retry logic
+max_retries = 3
+base_delay = 1  # Start with 1 second delay
+
+for attempt in range(max_retries):
+    try:
+        if not self.aws_service.Amazon_Bedrock_client:
+            yield PartialResponse(text=&quot;Error: Amazon Bedrock client is not initialized&quot;)
+            break
+
+        response = await self.aws_service.Amazon_Bedrock_client.converse_stream(**stream_config)
+        # Process response...
+        break  # Success, exit retry loop
+
+    except ClientError as e:
+        if &quot;ThrottlingException&quot; in str(e):
+            if attempt &lt; max_retries - 1:
+                delay = base_delay * (2 ** attempt)  # Exponential backoff
+                await asyncio.sleep(delay)
+                continue
+        error_message = f&quot;Amazon Bedrock API Error: {str(e)}&quot;
+        yield PartialResponse(text=f&quot;Error: {error_message}&quot;)
+        break
+</code></pre>
+<h3 id="chỉ-số-hiệu-năng"><strong>Chỉ số hiệu năng</strong></h3>
+<h3 id="hệ-thống-thu-thập-các-chỉ-số-hiệu-năng-chi-tiết-detailed-performance-metrics-nhằm-xác-định-các-điểm-nghẽn-bottlenecks-và-tối-ưu-hóa-hiệu-suất-hoạt-động-tổng-thể-optimize-performance">Hệ thống thu thập các chỉ số hiệu năng chi tiết (detailed performance metrics) nhằm xác định các điểm nghẽn (bottlenecks) và tối ưu hóa hiệu suất hoạt động tổng thể (optimize performance):</h3>
+<pre><code># From services/streaming_service.py - Performance metrics
+# Log token usage and latency
+latency = time.perf_counter() - start_time
+
+self.logger.info(
+f&quot;[{request_id}] Streaming Response Metrics:\n&quot;
+f&quot; Time to First Token: {first_token_time:.4f} seconds\n&quot;
+f&quot; Input Tokens: {input_tokens} (includes system prompt)\n&quot;
+f&quot; Input Tokens for Billing: {input_tokens - system_tokens} (excludes system prompt)\n&quot;
+f&quot; Output Tokens: {output_tokens}\n&quot;
+f&quot; Total Tokens: {total_tokens}\n&quot;
+f&quot; Amazon Bedrock Latency: {latency:.4f} seconds\n&quot;
+f&quot; Latency Optimization: {'enabled' if hasattr(self.bot_config, 'optimize_latency') and self.bot_config.optimize_latency else 'disabled'}&quot;
+)
+</code></pre>
+<h3 id="các-yếu-tố-bảo-mật"><strong>Các yếu tố bảo mật</strong></h3>
+<h3 id="bảo-mật-là-một-khía-cạnh-then-chốt-trong-việc-triển-khai-wrapper-api-với-nhiều-tính-năng-quan-trọng-được-thiết-kế-để-đảm-bảo-hoạt-động-an-toàn-của-hệ-thống">Bảo mật là một khía cạnh then chốt trong việc triển khai wrapper API, với nhiều tính năng quan trọng được thiết kế để đảm bảo hoạt động an toàn của hệ thống.</h3>
+<h3 id="xác-thực-jwt-kết-hợp-chữ-ký-aws-sigv4"><strong>Xác thực JWT kết hợp chữ ký AWS SigV4</strong></h3>
+<p>Hệ thống tích hợp xác thực JWT cho các yêu cầu từ Poe, đồng thời sử dụng AWS SigV4 signing để bảo mật các lệnh gọi Amazon Bedrock API, bao gồm:</p>
+<ul>
+<li>JWT validation – Đảm bảo rằng chỉ những yêu cầu được ủy quyền từ Poe mới có thể truy cập wrapper API.</li>
+<li>SigV4 signing – Đảm bảo wrapper API có thể xác thực an toàn với Amazon Bedrock.</li>
+<li>Credential management – Thông tin xác thực AWS được quản lý an toàn và không bao giờ lộ ra phía client.</li>
+</ul>
+<h3 id="quản-lý-bí-mật"><strong>Quản lý bí mật</strong></h3>
+<p>Hệ thống được tích hợp với <a href="https://aws.amazon.com/secrets-manager/">AWS Secrets Manager</a> để lưu trữ và truy xuất an toàn các thông tin nhạy cảm (sensitive credentials):</p>
+<pre><code># From services/aws_service.py - Secrets management
+@staticmethod
+def get_secret(secret_name: str, region_name: str = &quot;us-east-1&quot;) -&gt; Dict[str, Any]:
+    &quot;&quot;&quot;
+    Retrieve a secret from AWS Secrets Manager.
+
+    Args:
+        secret_name: Name of the secret to retrieve
+        region_name: AWS region where the secret is stored
+
+    Returns:
+        Dict[str, Any]: The secret value as a dictionary
+    &quot;&quot;&quot;
+    # Create a Secrets Manager client
+    session = boto3.session.Session()
+    client = session.client(
+        service_name='secretsmanager',
+        region_name=region_name
+    )
+
+    try:
+        get_secret_value_response = client.get_secret_value(
+            SecretId=secret_name
+        )
+    except Exception as e:
+        logging.error(f&quot;Error retrieving secret {secret_name}: {str(e)}&quot;)
+        raise
+
+    # Depending on whether the secret is a string or binary, one of these fields will be populated.
+    if 'SecretString' in get_secret_value_response:
+        import json
+        try:
+            # Explicitly annotate the return type for mypy
+            result: Dict[str, Any] = json.loads(get_secret_value_response['SecretString'])
+            return result
+        except json.JSONDecodeError:
+            # If not a JSON, return as a single-key dictionary
+            return {&quot;SecretString&quot;: get_secret_value_response['SecretString']}
+    else:
+        import base64
+        decoded_binary_secret = base64.b64decode(get_secret_value_response['SecretBinary'])
+        return {&quot;SecretBinary&quot;: decoded_binary_secret}
+</code></pre>
+<h3 id="quản-lý-kết-nối-an-toàn"><strong>Quản lý kết nối an toàn</strong></h3>
+<p>Hệ thống triển khai cơ chế quản lý kết nối an toàn (secure connection management) nhằm ngăn chặn rò rỉ thông tin xác thực (credential leakage) và đảm bảo quy trình dọn dẹp kết nối (proper cleanup) được thực hiện đúng cách sau mỗi phiên làm việc:</p>
+<pre><code># From services/aws_service.py - Secure connection cleanup
+async def cleanup(self) -&gt; None:
+    &quot;&quot;&quot;Clean up AWS client resources.&quot;&quot;&quot;
+    try:
+        if self.Amazon_Bedrock_client:
+            try:
+                await self.Amazon_Bedrock_client.__aexit__(None, None, None)
+            except Exception as e:
+                self.logger.error(f&quot;Error closing Amazon Bedrock client: {str(e)}&quot;)
+            finally:
+                self.Amazon_Bedrock_client = None
+
+        self.logger.info(&quot;Successfully cleaned up AWS client resources&quot;)
+    except Exception as e:
+        # Even if cleanup fails, reset the references to avoid stale connections
+        self.Amazon_Bedrock_client = None
+</code></pre>
+<h3 id="khắc-phục-sự-cố-và-gỡ-lỗi"><strong>Khắc phục sự cố và gỡ lỗi</strong></h3>
+<p>Wrapper API được trang bị khả năng ghi log và gỡ lỗi toàn diện (comprehensive logging and debugging) nhằm hỗ trợ phát hiện và xử lý sự cố một cách nhanh chóng và chính xác. Hệ thống triển khai ghi log chi tiết (detailed logging) xuyên suốt quy trình xử lý yêu cầu (request processing flow). Mỗi yêu cầu đều được gán một mã định danh duy nhất (unique ID) — mã này được sử dụng trong toàn bộ quá trình xử lý để hỗ trợ việc truy vết và phân tích (tracing) khi cần gỡ lỗi hoặc kiểm tra hiệu năng.</p>
+<pre><code># From core/refactored_chat_bot.py - Request tracing
+request_id = str(id(query))
+start_time = time.perf_counter()
+
+# Used in all log messages
+self.logger.info(f&quot;[{request_id}] Incoming request received&quot;)
+</code></pre>
+<h3 id="bài-học-kinh-nghiệm-và-thực-tiễn-tốt-nhất"><strong>Bài học kinh nghiệm và thực tiễn tốt nhất</strong></h3>
+<p>Thông qua quá trình hợp tác này, nhiều bài học kỹ thuật quan trọng đã được rút ra — có thể mang lại lợi ích cho những nhóm đang thực hiện các dự án tương tự:</p>
+<ul>
+<li><strong>Configuration-driven architecture</strong> – Việc sử dụng tệp cấu hình thay vì mã hóa trực tiếp hành vi riêng cho từng mô hình mang lại lợi ích to lớn trong bảo trì và mở rộng. Cách tiếp cận này cho phép thêm mô hình mới mà không cần chỉnh sửa mã nguồn, đồng thời giảm đáng kể nguy cơ phát sinh lỗi.</li>
+<li><strong>Protocol translation challenges</strong> – Thách thức phức tạp nhất là xử lý các khác biệt tinh tế trong giao thức truyền dữ liệu (streaming) giữa các mô hình khác nhau. Việc xây dựng một lớp trừu tượng ổn định (robust abstraction layer) đòi hỏi xem xét cẩn thận các trường hợp biên (edge cases) và xử lý lỗi toàn diện.</li>
+<li><strong>Error normalization</strong> – Để đảm bảo trải nghiệm xử lý lỗi thống nhất giữa các mô hình, nhóm đã xây dựng cơ chế chuẩn hóa lỗi nâng cao, có thể chuyển đổi lỗi đặc thù của từng mô hình thành thông báo thân thiện và dễ hiểu cho người dùng. Cách tiếp cận này cải thiện đáng kể trải nghiệm cho cả nhà phát triển và người dùng cuối.</li>
+<li><strong>Type safety</strong> – Việc sử dụng chặt chẽ gợi ý kiểu (type hints) của Python là yếu tố then chốt trong duy trì chất lượng mã nguồn của một codebase phức tạp có nhiều người đóng góp. Cách làm này giảm thiểu lỗi và tăng khả năng bảo trì mã.</li>
+<li><strong>Security first</strong> – Tích hợp Secrets Manager ngay từ đầu giúp đảm bảo toàn bộ thông tin xác thực được quản lý an toàn trong suốt vòng đời hệ thống, ngăn ngừa các lỗ hổng bảo mật tiềm ẩn.</li>
+</ul>
+<h3 id="kết-luận"><strong>Kết luận</strong></h3>
+<p>Sự hợp tác giữa AWS Generative AI Innovation Center và Quora minh chứng rằng một thiết kế kiến trúc được cân nhắc kỹ lưỡng có thể đẩy nhanh đáng kể tốc độ triển khai và đổi mới AI. Bằng việc xây dựng một wrapper API hợp nhất cho các mô hình Amazon Bedrock, hai nhóm đã rút ngắn thời gian triển khai từ vài ngày xuống chỉ còn vài phút, đồng thời mở rộng danh mục mô hình và cải thiện trải nghiệm người dùng.</p>
+<p>Cách tiếp cận này — tập trung vào trừu tượng hóa (abstraction), phát triển dựa trên cấu hình (configuration-driven development), và xử lý lỗi mạnh mẽ (robust error handling) — mang lại những bài học quý giá cho các tổ chức đang tìm cách tích hợp nhiều mô hình AI một cách hiệu quả. Các mẫu thiết kế và kỹ thuật được trình bày trong giải pháp này có thể áp dụng cho nhiều tình huống tích hợp AI khác nhau trong thực tế.</p>
+<p>Đối với các lãnh đạo công nghệ và nhà phát triển đang làm việc với các thách thức tương tự, nghiên cứu tình huống này nhấn mạnh giá trị của việc đầu tư vào các framework tích hợp linh hoạt (flexible integration frameworks) thay vì các kết nối điểm-đến-điểm truyền thống. Khoản đầu tư ban đầu vào việc xây dựng một lớp trừu tượng mạnh mẽ sẽ mang lại lợi ích dài hạn trong bảo trì hệ thống và mở rộng năng lực.</p>
+<h3 id="để-tìm-hiểu-thêm-về-việc-triển-khai-các-giải-pháp-tương-tự-bạn-có-thể-tham-khảo">Để tìm hiểu thêm về việc triển khai các giải pháp tương tự, bạn có thể tham khảo:</h3>
+<ul>
+<li><a href="https://aws.amazon.com/architecture/well-architected/">AWS Well-Architected Framework</a> – Hướng dẫn thực hành tốt nhất trong việc xây dựng hạ tầng an toàn, hiệu năng cao, linh hoạt và đáng tin cậy.<br>
+<a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html">Amazon Bedrock Developer Guide</a> – Thông tin chi tiết về cách làm việc với các mô hình nền tảng (FMs).</li>
+<li><a href="https://aws.amazon.com/generative-ai/innovation-center/">AWS Generative AI Innovation Center</a> – Nguồn hỗ trợ cho các dự án AI sáng tạo.</li>
+<li><a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/deploy-llms-on-aws.html">AWS Prescriptive Guidance for LLM Deployment</a> – Thực tiễn tốt nhất khi triển khai các mô hình ngôn ngữ lớn (LLMs).</li>
+</ul>
+<p>AWS Generative AI Innovation Center và Quora sẽ tiếp tục hợp tác mở rộng framework này, nhằm đảm bảo người dùng Poe luôn được truy cập vào các mô hình AI mới nhất và mạnh mẽ nhất, với thời gian triển khai tối thiểu.</p>
+<hr>
+<p><strong>Về các tác giả</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><img src="../../../3-blogstranslated/3.1-blog1/5.png" alt=""></th>
+          <th style="text-align: left">Dr. Gilbert V. Lepadatu là Kiến trúc sư Học sâu cao cấp (Senior Deep Learning Architect) tại AWS Generative AI Innovation Center, nơi ông hỗ trợ các doanh nghiệp thiết kế và triển khai các giải pháp GenAI quy mô lớn và tiên tiến. Với bằng Tiến sĩ Triết học (PhD in Philosophy) và hai bằng Thạc sĩ, ông mang đến một cách tiếp cận toàn diện và liên ngành (holistic and interdisciplinary) trong khoa học dữ liệu và trí tuệ nhân tạo.</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><img src="../../../3-blogstranslated/3.1-blog1/6.jpeg" alt=""></td>
+          <td style="text-align: left"><strong>Nick Huber</strong> là Trưởng nhóm Hệ sinh thái AI (AI Ecosystem Lead) cho Poe (thuộc Quora), chịu trách nhiệm đảm bảo việc tích hợp các mô hình AI hàng đầu lên nền tảng Poe diễn ra đúng hạn và đạt chất lượng cao nhất.</td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../../vi/3-blogstranslated/" title="Các bài blogs đã dịch"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../../vi/3-blogstranslated/3.2-blog2/" title="Tối ưu hóa việc truy cập thay đổi nội dung xếp hạng ISO với Verisk Rating Insights và Amazon Bedrock" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../../js/clipboard.min.js?1765232845"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1765232845"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765232845"></script>
+    <script src="../../../js/jquery.sticky.js?1765232845"></script>
+    <script src="../../../js/featherlight.min.js?1765232845"></script>
+    <script src="../../../js/highlight.pack.js?1765232845"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1765232845"></script>
+    <script src="../../../js/learn.js?1765232845"></script>
+    <script src="../../../js/hugo-learn.js?1765232845"></script>
+
+    <link href="../../../mermaid/mermaid.css?1765232845" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1765232845"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function (i, s, o, g, r, a, m) {
+    i["GoogleAnalyticsObject"] = r;
+    ((i[r] =
+      i[r] ||
+      function () {
+        (i[r].q = i[r].q || []).push(arguments);
+      }),
+      (i[r].l = 1 * new Date()));
+    ((a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]));
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m);
+  })(
+    window,
+    document,
+    "script",
+    "https://www.google-analytics.com/analytics.js",
+    "ga",
+  );
+
+  ga("create", "UA-158079754-2", "auto");
+  ga("send", "pageview");
+</script>
+
+  </body>
+</html>
