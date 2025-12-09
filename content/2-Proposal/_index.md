@@ -75,7 +75,8 @@ All of this runs on a serverless AWS architecture:
 ### 3. Solution Architecture
 
 The platform is implemented as a fully serverless, secure, and scalable architecture optimized for GenAI-driven document processing and RAG-based contract intelligence.
-![Architecture](1.png)
+
+![Architecture](/images/2-Proposal/1.png)
 
 #### High-Level Architecture
 

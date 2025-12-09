@@ -74,7 +74,8 @@ Tất cả được vận hành trên kiến trúc AWS Serverless:
 ### 3. Kiến trúc giải pháp (Solution Architecture)
 
 Nền tảng được triển khai dưới dạng kiến trúc serverless hoàn toàn, bảo mật và có khả năng mở rộng, được tối ưu cho xử lý tài liệu bằng GenAI và phân tích hợp đồng dựa trên RAG.
-![Architecture](1.png)
+
+![Kiến trúc](/images/2-Proposal/1.png)
 
 #### Kiến trúc tổng thể (High-Level Architecture)
 
