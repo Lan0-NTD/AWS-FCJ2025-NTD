@@ -284,4 +284,4 @@ Nền tảng được triển khai dưới dạng kiến trúc serverless hoàn 
 
 #### Proposal chi tiết
 
-[Proposal chi tiết](Proposal.pdf)
+[Proposal chi tiết](https://drive.google.com/file/d/1J_od87NmrD98MoIe4gHUKHbjtR1kzZh6/view?usp=sharing)
